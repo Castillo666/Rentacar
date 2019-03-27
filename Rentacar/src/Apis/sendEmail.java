@@ -2,8 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-package com.mycompany.imprimir;
+package Apis;
 
 import java.util.Properties;
 import javax.mail.Session;
@@ -62,3 +61,4 @@ public class sendEmail
         send("kevcastilloh@gmail.com", "Correo", "Mensaje desde JAVA Salu2","kevinpopo13@gmail.com", "boladetrueno13");
     }
 }
+*/

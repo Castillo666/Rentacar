@@ -1,4 +1,4 @@
-package com.mycompany.imprimir;
+/*package Apis;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -58,3 +58,4 @@ public class crearPDF
       }
    }
 }
+*/
