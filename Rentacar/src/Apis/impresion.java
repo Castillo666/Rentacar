@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-package Apis;
+/*package Apis;
 
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
@@ -14,9 +10,7 @@ import javax.swing.JOptionPane;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.printing.PDFPageable;
 
-/**
- *
- * @author david
+
 public class impresion {
 
     private final static Logger LOGGER = Logger.getLogger("mx.hash.impresionpdf.Impresor");
@@ -36,9 +30,10 @@ public class impresion {
      * Manda un documento a imprimir a la impresora que se indique en el dialogo
      * @throws PrinterException
      * @throws IOException 
+    
     public void imprimir() throws PrinterException, IOException {
         // Indicamos el nombre del archivo Pdf que deseamos imprimir
-        PDDocument document = PDDocument.load(new File("./CasoCrunch.pdf"));
+        PDDocument document = PDDocument.load(new File("./HelloWorld.pdf"));
 
         PrinterJob job = PrinterJob.getPrinterJob();
 
