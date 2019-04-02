@@ -2,7 +2,7 @@ package Entidades;
 
 
 public class Empresa {
-        final int cedulaJuridica;
+        int cedulaJuridica;
 	String razonSocial;
 	String telefono;
 	int idProvincia;
@@ -10,7 +10,7 @@ public class Empresa {
 	int idDistrito;
 	String señas;
 
-    public Empresa(int cedulaJuridica, String razonSocial, String telefono, int idProvincia, int idCanton, int idDistrito, String señas) {
+  /*  public Empresa(int cedulaJuridica, String razonSocial, String telefono, int idProvincia, int idCanton, int idDistrito, String señas) {
         this.cedulaJuridica = cedulaJuridica;
         this.razonSocial = razonSocial;
         this.telefono = telefono;
@@ -19,6 +19,7 @@ public class Empresa {
         this.idDistrito = idDistrito;
         this.señas = señas;
     }
+        */
 
     public int getCedulaJuridica() {
         return cedulaJuridica;
@@ -42,6 +43,10 @@ public class Empresa {
 
     public int getIdDistrito() {
         return idDistrito;
+    }
+
+    public void setCedulaJuridica(int cedulaJuridica) {
+        this.cedulaJuridica = cedulaJuridica;
     }
 
     public String getSeñas() {

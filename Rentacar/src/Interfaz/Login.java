@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import Interfaz.Empresas;
 
 /**
  *
@@ -103,6 +104,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+       Empresas emp = new Empresas();
+       emp.setVisible(true);
+       this.setVisible(false);
+        
         String usuario, password;
         
         usuario = txtCorreo.getText();
