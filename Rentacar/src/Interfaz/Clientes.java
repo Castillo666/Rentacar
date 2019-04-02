@@ -43,6 +43,7 @@ public class Clientes extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setText("Nuevo Cliente");
 

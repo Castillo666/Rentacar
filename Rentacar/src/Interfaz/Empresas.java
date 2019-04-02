@@ -18,6 +18,7 @@ public class Empresas extends javax.swing.JFrame {
      */
     public Empresas() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -48,6 +49,7 @@ public class Empresas extends javax.swing.JFrame {
         txt1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setText("Nueva Empresa");
 
@@ -124,9 +126,7 @@ public class Empresas extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblCedula))
+                    .addComponent(lblCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -166,7 +166,7 @@ public class Empresas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-          Empresa emp = new Empresa();
+        Empresa emp = new Empresa();
           
         emp.setCedulaJuridica(Integer.parseInt(txtCedula.getText()));
         emp.setRazonSocial(txtRazon.getText());
