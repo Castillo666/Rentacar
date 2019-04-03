@@ -1,6 +1,6 @@
 package Entidades;
 
-public class Vehículo {
+public class Vehiculo {
     	final String placa; 
 	int añoFabricacion;
 	String color;
@@ -18,7 +18,7 @@ public class Vehículo {
 	String estado;
 	int idServicio;
 
-    public Vehículo(String placa, int añoFabricacion, String color, String marca, int capacidad, int kilometraje, int numeroPuertas, String vin, int mpg, int costoDia, int capacidadMaletas, String transmicion, String sede, String estilo, String estado, int idServicio) {
+    public Vehiculo(String placa, int añoFabricacion, String color, String marca, int capacidad, int kilometraje, int numeroPuertas, String vin, int mpg, int costoDia, int capacidadMaletas, String transmicion, String sede, String estilo, String estado, int idServicio) {
         this.placa = placa;
         this.añoFabricacion = añoFabricacion;
         this.color = color;

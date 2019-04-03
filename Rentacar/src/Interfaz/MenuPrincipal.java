@@ -30,6 +30,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         registrarEmpresa = new javax.swing.JButton();
         registrarCliente = new javax.swing.JButton();
+        registrarServMantenimiento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -49,21 +50,35 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        registrarServMantenimiento.setText("Registrar Servicio Mantenimiento");
+        registrarServMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarServMantenimientoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(registrarEmpresa)
-                .addGap(18, 18, 18)
-                .addComponent(registrarCliente)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(registrarEmpresa)
+                        .addGap(18, 18, 18)
+                        .addComponent(registrarCliente))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(registrarServMantenimiento)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addGap(193, 193, 193)
+                .addComponent(registrarServMantenimiento)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registrarEmpresa)
                     .addComponent(registrarCliente))
@@ -85,6 +100,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_registrarClienteActionPerformed
 
+    private void registrarServMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarServMantenimientoActionPerformed
+         ServMantenimiento servicio = new ServMantenimiento();
+         servicio.setVisible(true);
+         this.setVisible(false);
+    }//GEN-LAST:event_registrarServMantenimientoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -92,5 +113,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton registrarCliente;
     private javax.swing.JButton registrarEmpresa;
+    private javax.swing.JButton registrarServMantenimiento;
     // End of variables declaration//GEN-END:variables
 }

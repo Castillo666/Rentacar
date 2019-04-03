@@ -3,7 +3,7 @@ package Entidades;
 import java.util.Date;
 
 public class Servicio {
-        final int idServicio;
+        int idServicio;
 	Date fechaInicio;
 	Date fechaFin;
 	int monto;
@@ -11,7 +11,7 @@ public class Servicio {
 	String tipoServicio;
 	int idEmpresa;
 
-    public Servicio(int idServicio, Date fechaInicio, Date fechaFin, int monto, String detalle, String tipoServicio, int idEmpresa) {
+  /* public Servicio(int idServicio, Date fechaInicio, Date fechaFin, int monto, String detalle, String tipoServicio, int idEmpresa) {
         this.idServicio = idServicio;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -19,6 +19,11 @@ public class Servicio {
         this.detalle = detalle;
         this.tipoServicio = tipoServicio;
         this.idEmpresa = idEmpresa;
+    }
+*/
+        
+    public void setIdServicio(int idServicio) {
+        this.idServicio = idServicio;
     }
 
     public int getIdServicio() {
