@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import Conexion.Conexion;
 import Entidades.Cliente;
+import java.io.File;
+import java.io.FileInputStream;
 
 /**
  *
@@ -18,12 +20,12 @@ import Entidades.Cliente;
  */
 public class ClientesOp {
     
-     public static String registrarCliente(Cliente cliente) {
+     public static String registrarCliente(Cliente cliente,File file) {
         String result = null, last = null;
         Conexion cc = new Conexion();
         Connection cn = cc.getConexion();
         PreparedStatement pst = null;
-        String sql = "INSERT INTO esquema.cliente VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO esquema.cliente(cedula,nombreCompleto,direccion,correo,telefono,fotoLicencia) VALUES(?,?,?,?,?,?)";
         try {
             if (cn != null) {
                 pst = cn.prepareStatement(sql);
@@ -32,6 +34,11 @@ public class ClientesOp {
                 pst.setString(3, cliente.getDireccion());
                 pst.setString(4, cliente.getCorreo());
                 pst.setString(5, cliente.getTelefono());
+                
+                FileInputStream fis = new FileInputStream(file);
+                
+                pst.setBinaryStream(6, fis, (int) file.length());
+                
                 pst.executeUpdate();
              
                 if (cn != null) {

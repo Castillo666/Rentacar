@@ -43,6 +43,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         registrarCliente.setText("Registrar Cliente");
+        registrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,6 +78,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         emp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registrarEmpresaActionPerformed
+
+    private void registrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarClienteActionPerformed
+        Clientes cliente = new Clientes();
+        cliente.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
