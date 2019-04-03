@@ -31,6 +31,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         registrarEmpresa = new javax.swing.JButton();
         registrarCliente = new javax.swing.JButton();
         registrarServMantenimiento = new javax.swing.JButton();
+        btnRegVehiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -57,6 +58,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnRegVehiculo.setText("Registar Vehiculo");
+        btnRegVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegVehiculoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,13 +78,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(registrarCliente))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(registrarServMantenimiento)))
+                        .addComponent(registrarServMantenimiento))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(btnRegVehiculo)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(193, 193, 193)
+                .addGap(146, 146, 146)
+                .addComponent(btnRegVehiculo)
+                .addGap(18, 18, 18)
                 .addComponent(registrarServMantenimiento)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -106,11 +119,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
          this.setVisible(false);
     }//GEN-LAST:event_registrarServMantenimientoActionPerformed
 
+    private void btnRegVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegVehiculoActionPerformed
+        Vehiculos vehiculo = new Vehiculos();
+        vehiculo.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnRegVehiculoActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegVehiculo;
     private javax.swing.JButton registrarCliente;
     private javax.swing.JButton registrarEmpresa;
     private javax.swing.JButton registrarServMantenimiento;

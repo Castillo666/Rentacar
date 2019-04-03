@@ -1,7 +1,7 @@
 package Entidades;
 
 public class Vehiculo {
-    	final String placa; 
+    	String placa; 
 	int añoFabricacion;
 	String color;
 	String marca;
@@ -12,13 +12,13 @@ public class Vehiculo {
 	int mpg;
 	int costoDia;
 	int capacidadMaletas;
-	String transmicion;
+	String transmision;
 	String sede;
 	String estilo;
 	String estado;
 	int idServicio;
 
-    public Vehiculo(String placa, int añoFabricacion, String color, String marca, int capacidad, int kilometraje, int numeroPuertas, String vin, int mpg, int costoDia, int capacidadMaletas, String transmicion, String sede, String estilo, String estado, int idServicio) {
+   /* public Vehiculo(String placa, int añoFabricacion, String color, String marca, int capacidad, int kilometraje, int numeroPuertas, String vin, int mpg, int costoDia, int capacidadMaletas, String transmision, String sede, String estilo, String estado, int idServicio) {
         this.placa = placa;
         this.añoFabricacion = añoFabricacion;
         this.color = color;
@@ -30,12 +30,13 @@ public class Vehiculo {
         this.mpg = mpg;
         this.costoDia = costoDia;
         this.capacidadMaletas = capacidadMaletas;
-        this.transmicion = transmicion;
+        this.transmision = transmision;
         this.sede = sede;
         this.estilo = estilo;
         this.estado = estado;
         this.idServicio = idServicio;
     }
+        */
 
     public String getPlaca() {
         return placa;
@@ -73,6 +74,10 @@ public class Vehiculo {
         return mpg;
     }
 
+    public String getSede() {
+        return sede;
+    }
+
     public int getCostoDia() {
         return costoDia;
     }
@@ -81,8 +86,8 @@ public class Vehiculo {
         return capacidadMaletas;
     }
 
-    public String getTransmicion() {
-        return transmicion;
+    public String getTransmision() {
+        return transmision;
     }
 
     public String getEstilo() {
@@ -97,6 +102,10 @@ public class Vehiculo {
         return idServicio;
     }
 
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+    
     public void setAñoFabricacion(int añoFabricacion) {
         this.añoFabricacion = añoFabricacion;
     }
@@ -137,8 +146,8 @@ public class Vehiculo {
         this.capacidadMaletas = capacidadMaletas;
     }
 
-    public void setTransmicion(String transmicion) {
-        this.transmicion = transmicion;
+    public void setTransmision(String transmision) {
+        this.transmision = transmision;
     }
 
     public void setSede(String sede) {

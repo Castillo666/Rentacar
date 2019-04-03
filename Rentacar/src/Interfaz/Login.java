@@ -38,7 +38,6 @@ public class Login extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         lblLogin.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblLogin.setText("Iniciar Sesión");

@@ -55,7 +55,6 @@ public class Clientes extends javax.swing.JFrame {
         lblFoto = new javax.swing.JLabel();
         chooserFoto = new javax.swing.JFileChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jLabel1.setText("Nuevo Cliente");

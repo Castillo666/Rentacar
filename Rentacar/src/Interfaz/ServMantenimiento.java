@@ -53,6 +53,7 @@ public class ServMantenimiento extends javax.swing.JFrame {
         btbRegistrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         lblIdServicio.setText("idServicio");
 

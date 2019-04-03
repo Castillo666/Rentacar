@@ -5,8 +5,8 @@
  */
 package Interfaz;
 
-import Entidades.Cliente;
-import Operaciones.ClientesOp;
+import Entidades.Vehiculo;
+import Operaciones.VehiculoOp;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.Icon;
@@ -19,13 +19,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author marip
  */
-public class Vehiculo extends javax.swing.JFrame {
+public class Vehiculos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Clientes
-     */
-    public Vehiculo() {
+    public Vehiculos() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -103,7 +101,6 @@ public class Vehiculo extends javax.swing.JFrame {
         });
 
         btnRegistrar.setText("Registrar Vehiculo");
-        btnRegistrar.setActionCommand("Registrar Vehiculo");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -327,7 +324,7 @@ public class Vehiculo extends javax.swing.JFrame {
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         int resultado;
 
-        Vehiculo ventana = new Vehiculo();
+        Vehiculos ventana = new Vehiculos();
         
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG y PNG","jpg","png");
         ventana.chooserFoto.setFileFilter(filtro);
@@ -354,15 +351,27 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     }//GEN-LAST:event_btnFotoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        Cliente cliente = new Cliente();
+        Vehiculo vehiculo = new Vehiculo();
         
-        cliente.setDireccion(txtColor.getText());
-        cliente.setCedula(Integer.parseInt(txtPlaca.getText()));
-        cliente.setCorreo(txtMarca.getText());
-        cliente.setNombreCompleto(txtAño.getText());
-        cliente.setTelefono(txtCapacidad.getText());
+        vehiculo.setPlaca(txtPlaca.getText());
+        vehiculo.setAñoFabricacion(Integer.parseInt(txtAño.getText()));
+        vehiculo.setColor(txtColor.getText());
+        vehiculo.setMarca(txtMarca.getText());
+        vehiculo.setCapacidad(Integer.parseInt(txtCapacidad.getText()));
+        vehiculo.setKilometraje(Integer.parseInt(txtKilometraje.getText()));
+        vehiculo.setNumeroPuertas(Integer.parseInt(txtPuertas.getText()));
+        vehiculo.setVin(txtVin.getText());
+        vehiculo.setMpg(Integer.parseInt(txtMillas.getText()));
+        vehiculo.setCostoDia(Integer.parseInt(txtCosto.getText()));
+        vehiculo.setCapacidadMaletas(Integer.parseInt(txtMaletas.getText()));
+        vehiculo.setTransmision(txtTransmision.getText());
+        vehiculo.setSede(txtSede.getText());
+        vehiculo.setEstilo(txtEstilo.getText());
+        vehiculo.setEstado(txtEstado.getText());
+        vehiculo.setIdServicio(Integer.parseInt(txtServicio.getText()));
+
         
-        String resp = ClientesOp.registrarCliente(cliente, fichero);
+        String resp = VehiculoOp.registrarVehiculo(vehiculo, fichero);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtKilometrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKilometrajeActionPerformed
