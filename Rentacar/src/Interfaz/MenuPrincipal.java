@@ -32,71 +32,65 @@ public class MenuPrincipal extends javax.swing.JFrame {
         registrarCliente = new javax.swing.JButton();
         registrarServMantenimiento = new javax.swing.JButton();
         btnRegVehiculo = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         setSize(new java.awt.Dimension(0, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        registrarEmpresa.setBackground(new java.awt.Color(255, 255, 255));
+        registrarEmpresa.setForeground(new java.awt.Color(0, 0, 102));
         registrarEmpresa.setText("Registrar Empresa");
+        registrarEmpresa.setBorderPainted(false);
         registrarEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarEmpresaActionPerformed(evt);
             }
         });
+        getContentPane().add(registrarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
+        registrarCliente.setBackground(new java.awt.Color(255, 255, 255));
+        registrarCliente.setForeground(new java.awt.Color(0, 0, 102));
         registrarCliente.setText("Registrar Cliente");
+        registrarCliente.setBorderPainted(false);
         registrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(registrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
+        registrarServMantenimiento.setBackground(new java.awt.Color(255, 255, 255));
+        registrarServMantenimiento.setForeground(new java.awt.Color(0, 0, 102));
         registrarServMantenimiento.setText("Registrar Servicio Mantenimiento");
+        registrarServMantenimiento.setBorderPainted(false);
         registrarServMantenimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarServMantenimientoActionPerformed(evt);
             }
         });
+        getContentPane().add(registrarServMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
+        btnRegVehiculo.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegVehiculo.setForeground(new java.awt.Color(0, 0, 102));
         btnRegVehiculo.setText("Registar Vehiculo");
+        btnRegVehiculo.setBorderPainted(false);
         btnRegVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegVehiculoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(registrarEmpresa)
-                        .addGap(18, 18, 18)
-                        .addComponent(registrarCliente))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(registrarServMantenimiento))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(btnRegVehiculo)))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(btnRegVehiculo)
-                .addGap(18, 18, 18)
-                .addComponent(registrarServMantenimiento)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registrarEmpresa)
-                    .addComponent(registrarCliente))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Menú Principal");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 190, 40));
+
+        lblFondo.setBackground(new java.awt.Color(0, 0, 102));
+        lblFondo.setOpaque(true);
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,6 +126,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegVehiculo;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JButton registrarCliente;
     private javax.swing.JButton registrarEmpresa;
     private javax.swing.JButton registrarServMantenimiento;

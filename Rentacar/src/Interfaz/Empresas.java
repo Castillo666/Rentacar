@@ -30,7 +30,7 @@ public class Empresas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         lblCedula = new javax.swing.JLabel();
         lblRazon = new javax.swing.JLabel();
@@ -46,121 +46,78 @@ public class Empresas extends javax.swing.JFrame {
         txtDistrito = new javax.swing.JTextField();
         txtSeñas = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
-        txt1 = new javax.swing.JTextField();
+        btnVolver = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nueva Empresa");
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Nueva Empresa");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 152, -1));
 
+        lblCedula.setForeground(new java.awt.Color(255, 255, 255));
         lblCedula.setText("Cédula Jurídica: ");
+        getContentPane().add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
+        lblRazon.setForeground(new java.awt.Color(255, 255, 255));
         lblRazon.setText("Razón Social:");
+        getContentPane().add(lblRazon, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
 
+        lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lblTelefono.setText("Teléfono:");
+        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
+        lblProvincia.setForeground(new java.awt.Color(255, 255, 255));
         lblProvincia.setText("Id Provincia:");
+        getContentPane().add(lblProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
 
-        lblCanton.setText("Id Canton");
+        lblCanton.setForeground(new java.awt.Color(255, 255, 255));
+        lblCanton.setText("Id Canton:");
+        getContentPane().add(lblCanton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        lblDistrito.setText("Id Distrito");
+        lblDistrito.setForeground(new java.awt.Color(255, 255, 255));
+        lblDistrito.setText("Id Distrito:");
+        getContentPane().add(lblDistrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+        getContentPane().add(txtRazon, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 156, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 160, -1));
 
-        lblSeñas.setText("Señas");
+        lblSeñas.setForeground(new java.awt.Color(255, 255, 255));
+        lblSeñas.setText("Señas:");
+        getContentPane().add(lblSeñas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
+        getContentPane().add(txtProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 160, -1));
+        getContentPane().add(txtCanton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 160, -1));
+        getContentPane().add(txtDistrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 170, -1));
+        getContentPane().add(txtSeñas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 189, 62));
 
+        btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setForeground(new java.awt.Color(0, 0, 102));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.setBorderPainted(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCedula)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblRazon)
-                                .addGap(34, 34, 34)
-                                .addComponent(txtRazon))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTelefono)
-                                .addGap(33, 33, 33)
-                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblProvincia)
-                                    .addComponent(lblCanton)
-                                    .addComponent(lblSeñas)
-                                    .addComponent(lblDistrito))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtProvincia)
-                                    .addComponent(txtCanton)
-                                    .addComponent(txtDistrito)
-                                    .addComponent(txtSeñas, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(btnRegistrar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 86, Short.MAX_VALUE)
-                .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(176, 176, 176))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCedula)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRazon)
-                    .addComponent(txtRazon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefono)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblProvincia)
-                    .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCanton)
-                    .addComponent(txtCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDistrito)
-                    .addComponent(txtDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(lblSeñas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(txtSeñas, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btnRegistrar)
-                .addContainerGap())
-        );
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setForeground(new java.awt.Color(0, 0, 102));
+        btnVolver.setText("Volver");
+        btnVolver.setBorderPainted(false);
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, -1, -1));
+
+        lblFondo.setBackground(new java.awt.Color(0, 0, 102));
+        lblFondo.setOpaque(true);
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,15 +135,13 @@ public class Empresas extends javax.swing.JFrame {
         
         String resp = EmpresaOp.registrarEmpresa(emp);
         
-       
-        /*
-        d_clave.setText("");
-        d_nombre.setText("");
-        d_autor.setText("");
-        d_genero.setText("");
-        d_precio.setText("");
-        */
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,15 +153,16 @@ public class Empresas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblCanton;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblDistrito;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblProvincia;
     private javax.swing.JLabel lblRazon;
     private javax.swing.JLabel lblSeñas;
     private javax.swing.JLabel lblTelefono;
-    private javax.swing.JTextField txt1;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtCanton;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDistrito;

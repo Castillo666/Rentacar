@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Interfaz.MenuPrincipal;
 
 
 /**
@@ -26,6 +27,7 @@ public class ServMantenimiento extends javax.swing.JFrame {
      */
     public ServMantenimiento() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,6 +41,7 @@ public class ServMantenimiento extends javax.swing.JFrame {
 
         jSpinner1 = new javax.swing.JSpinner();
         jSpinner2 = new javax.swing.JSpinner();
+        lblTitulo = new javax.swing.JLabel();
         lblIdServicio = new javax.swing.JLabel();
         lblFechaInicio = new javax.swing.JLabel();
         lblTipoServicio = new javax.swing.JLabel();
@@ -51,31 +54,54 @@ public class ServMantenimiento extends javax.swing.JFrame {
         txtMonto = new javax.swing.JTextField();
         txtFechaFin = new javax.swing.JTextField();
         txtFechaInicio = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         lblIdEmpresa = new javax.swing.JLabel();
         txtTipoServicio = new javax.swing.JTextField();
         btbRegistrar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Registrar Servicio Mantenimiento");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+
+        lblIdServicio.setForeground(new java.awt.Color(255, 255, 255));
         lblIdServicio.setText("idServicio");
+        getContentPane().add(lblIdServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
+        lblFechaInicio.setForeground(new java.awt.Color(255, 255, 255));
         lblFechaInicio.setText("Fecha de inicio:");
+        getContentPane().add(lblFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
+        lblTipoServicio.setForeground(new java.awt.Color(255, 255, 255));
         lblTipoServicio.setText("Tipo de Servicio:");
+        getContentPane().add(lblTipoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
 
+        lblFechaFin.setForeground(new java.awt.Color(255, 255, 255));
         lblFechaFin.setText("Fecha de Finalizacion:");
+        getContentPane().add(lblFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
+        lblDetalle.setForeground(new java.awt.Color(255, 255, 255));
         lblDetalle.setText("Detalle:");
+        getContentPane().add(lblDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, -1, -1));
 
+        lblMonto.setForeground(new java.awt.Color(255, 255, 255));
         lblMonto.setText("Monto:");
+        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
 
         txtIdServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdServicioActionPerformed(evt);
             }
         });
+        getContentPane().add(txtIdServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 204, -1));
+        getContentPane().add(txtIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 204, -1));
+        getContentPane().add(txtDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 204, -1));
+        getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 204, -1));
 
         txtFechaFin.setText("DD/MM/YY");
         txtFechaFin.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +109,7 @@ public class ServMantenimiento extends javax.swing.JFrame {
                 txtFechaFinActionPerformed(evt);
             }
         });
+        getContentPane().add(txtFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 204, -1));
 
         txtFechaInicio.setText("DD/MM/YY");
         txtFechaInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -90,96 +117,37 @@ public class ServMantenimiento extends javax.swing.JFrame {
                 txtFechaInicioActionPerformed(evt);
             }
         });
+        getContentPane().add(txtFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 204, -1));
 
-        jLabel7.setText("Registrar Servicio Mantenimiento");
-
+        lblIdEmpresa.setForeground(new java.awt.Color(255, 255, 255));
         lblIdEmpresa.setText("idEmpresa:");
+        getContentPane().add(lblIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
+        getContentPane().add(txtTipoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 204, -1));
 
+        btbRegistrar.setBackground(new java.awt.Color(255, 255, 255));
+        btbRegistrar.setForeground(new java.awt.Color(0, 0, 102));
         btbRegistrar.setText("Registrar");
         btbRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btbRegistrarActionPerformed(evt);
             }
         });
+        getContentPane().add(btbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblIdEmpresa)
-                    .addComponent(lblTipoServicio)
-                    .addComponent(lblFechaInicio)
-                    .addComponent(lblFechaFin)
-                    .addComponent(lblMonto)
-                    .addComponent(lblDetalle)
-                    .addComponent(lblIdServicio))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTipoServicio)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtIdEmpresa)
-                                    .addComponent(txtDetalle)
-                                    .addComponent(txtMonto)
-                                    .addComponent(txtFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(txtIdServicio))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(129, 129, 129))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btbRegistrar)
-                        .addGap(207, 207, 207))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel7)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIdServicio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaInicio)
-                    .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaFin)
-                    .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMonto)
-                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDetalle))
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTipoServicio)
-                    .addComponent(txtTipoServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdEmpresa)
-                    .addComponent(txtIdEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(btbRegistrar)
-                .addContainerGap())
-        );
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setForeground(new java.awt.Color(0, 0, 102));
+        btnVolver.setText("Volver");
+        btnVolver.setBorderPainted(false);
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 590, 90, -1));
+
+        lblFondo.setBackground(new java.awt.Color(0, 0, 102));
+        lblFondo.setOpaque(true);
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -193,9 +161,10 @@ public class ServMantenimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFechaInicioActionPerformed
 
     private void btbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbRegistrarActionPerformed
-        Servicio servicio = new Servicio();
+      
+        /*Servicio servicio = new Servicio();
         
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpllblTitulormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
         try {
             parsed = format.parse(txtFechaInicio.getText());
@@ -207,7 +176,7 @@ public class ServMantenimiento extends javax.swing.JFrame {
         java.util.Date parsed2 = null;
         try {
             parsed2 = format.parse(txtFechaFin.getText());
-        } catch (ParseException ex) {
+    lblTituloatch (ParseException ex) {
             Logger.getLogger(ServMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
         java.sql.Date fechaFin = new java.sql.Date(parsed2.getTime());
@@ -222,11 +191,18 @@ public class ServMantenimiento extends javax.swing.JFrame {
         servicio.setTipoServicio(txtTipoServicio.getText());
         
         String resp = ServMantenimientoOp.registrarServMantenimiento(servicio);
+        */
     }//GEN-LAST:event_btbRegistrarActionPerformed
 
     private void txtFechaFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaFinActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+       MenuPrincipal menu = new MenuPrincipal();
+       menu.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,16 +210,18 @@ public class ServMantenimiento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbRegistrar;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JLabel lblDetalle;
     private javax.swing.JLabel lblFechaFin;
     private javax.swing.JLabel lblFechaInicio;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIdEmpresa;
     private javax.swing.JLabel lblIdServicio;
     private javax.swing.JLabel lblMonto;
     private javax.swing.JLabel lblTipoServicio;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtDetalle;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaInicio;
