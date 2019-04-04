@@ -171,12 +171,15 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtFechaFin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="YY/MM/DD"/>
+        <Property name="text" type="java.lang.String" value="DD/MM/YY"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaFinActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFechaInicio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="YY/MM/DD"/>
+        <Property name="text" type="java.lang.String" value="DD/MM/YY"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaInicioActionPerformed"/>

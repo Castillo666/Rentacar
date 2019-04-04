@@ -9,6 +9,10 @@ import Entidades.Servicio;
 import Operaciones.ServMantenimientoOp;
 import java.text.ParseException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -73,9 +77,14 @@ public class ServMantenimiento extends javax.swing.JFrame {
             }
         });
 
-        txtFechaFin.setText("YY/MM/DD");
+        txtFechaFin.setText("DD/MM/YY");
+        txtFechaFin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaFinActionPerformed(evt);
+            }
+        });
 
-        txtFechaInicio.setText("YY/MM/DD");
+        txtFechaInicio.setText("DD/MM/YY");
         txtFechaInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaInicioActionPerformed(evt);
@@ -186,16 +195,27 @@ public class ServMantenimiento extends javax.swing.JFrame {
     private void btbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbRegistrarActionPerformed
         Servicio servicio = new Servicio();
         
-        String fechaInS = txtFechaInicio.getText();
-        String fechaFinS = txtFechaFin.getText();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date parsed = null;
+        try {
+            parsed = format.parse(txtFechaInicio.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(ServMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        java.sql.Date fechaInicio = new java.sql.Date(parsed.getTime());
         
-         Date fechaIn=Date.valueOf(fechaInS);//converting string into sql date.
-         Date fechaFin =Date.valueOf(fechaFinS);//converting string into sql date.
+        java.util.Date parsed2 = null;
+        try {
+            parsed2 = format.parse(txtFechaFin.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(ServMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        java.sql.Date fechaFin = new java.sql.Date(parsed2.getTime());
         
         
         servicio.setDetalle(txtDetalle.getText());
         servicio.setFechaFin(fechaFin);
-        servicio.setFechaInicio(fechaIn);
+        servicio.setFechaInicio(fechaInicio);
         servicio.setIdEmpresa(Integer.parseInt(txtIdEmpresa.getText()));
         servicio.setIdServicio(Integer.parseInt(txtIdServicio.getText()));
         servicio.setMonto(Integer.parseInt(txtMonto.getText()));
@@ -203,6 +223,10 @@ public class ServMantenimiento extends javax.swing.JFrame {
         
         String resp = ServMantenimientoOp.registrarServMantenimiento(servicio);
     }//GEN-LAST:event_btbRegistrarActionPerformed
+
+    private void txtFechaFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaFinActionPerformed
 
     /**
      * @param args the command line arguments
