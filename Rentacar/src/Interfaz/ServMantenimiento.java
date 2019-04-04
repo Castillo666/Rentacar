@@ -162,9 +162,9 @@ public class ServMantenimiento extends javax.swing.JFrame {
 
     private void btbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbRegistrarActionPerformed
       
-        /*Servicio servicio = new Servicio();
+        Servicio servicio = new Servicio();
         
-        SimpllblTitulormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
         try {
             parsed = format.parse(txtFechaInicio.getText());
@@ -176,9 +176,10 @@ public class ServMantenimiento extends javax.swing.JFrame {
         java.util.Date parsed2 = null;
         try {
             parsed2 = format.parse(txtFechaFin.getText());
-    lblTituloatch (ParseException ex) {
+        } catch (ParseException ex) {
             Logger.getLogger(ServMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         java.sql.Date fechaFin = new java.sql.Date(parsed2.getTime());
         
         
@@ -191,7 +192,6 @@ public class ServMantenimiento extends javax.swing.JFrame {
         servicio.setTipoServicio(txtTipoServicio.getText());
         
         String resp = ServMantenimientoOp.registrarServMantenimiento(servicio);
-        */
     }//GEN-LAST:event_btbRegistrarActionPerformed
 
     private void txtFechaFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinActionPerformed
