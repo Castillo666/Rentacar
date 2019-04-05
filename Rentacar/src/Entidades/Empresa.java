@@ -10,17 +10,6 @@ public class Empresa {
 	int idDistrito;
 	String señas;
 
-  /*  public Empresa(int cedulaJuridica, String razonSocial, String telefono, int idProvincia, int idCanton, int idDistrito, String señas) {
-        this.cedulaJuridica = cedulaJuridica;
-        this.razonSocial = razonSocial;
-        this.telefono = telefono;
-        this.idProvincia = idProvincia;
-        this.idCanton = idCanton;
-        this.idDistrito = idDistrito;
-        this.señas = señas;
-    }
-        */
-
     public int getCedulaJuridica() {
         return cedulaJuridica;
     }

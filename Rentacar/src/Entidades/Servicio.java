@@ -10,17 +10,6 @@ public class Servicio {
 	String detalle;
 	String tipoServicio;
 	int idEmpresa;
-
-  /* public Servicio(int idServicio, Date fechaInicio, Date fechaFin, int monto, String detalle, String tipoServicio, int idEmpresa) {
-        this.idServicio = idServicio;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.monto = monto;
-        this.detalle = detalle;
-        this.tipoServicio = tipoServicio;
-        this.idEmpresa = idEmpresa;
-    }
-*/
         
     public void setIdServicio(int idServicio) {
         this.idServicio = idServicio;

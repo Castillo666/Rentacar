@@ -7,16 +7,7 @@ public class Cliente {
 	String direccion;
 	String correo;
 	String telefono;
-	//fotoLicencia image not null
-
-    /*public Cliente(int cedula, String nombreCompleto, String direccion, String correo, String telefono) {
-        this.cedula = cedula;
-        this.nombreCompleto = nombreCompleto;
-        this.direccion = direccion;
-        this.correo = correo;
-        this.telefono = telefono;
-    }
-    */
+	
         
     public void setCedula(int cedula) {
         this.cedula = cedula;

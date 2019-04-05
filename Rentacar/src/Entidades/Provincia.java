@@ -1,12 +1,11 @@
 package Entidades;
 
 public class Provincia {
-        final int idCanton;
+        int idCanton;
         String Nombre;
 
-    public Provincia(int idCanton, String Nombre) {
+    public void setIdCanton(int idCanton) {
         this.idCanton = idCanton;
-        this.Nombre = Nombre;
     }
 
     public int getIdCanton() {

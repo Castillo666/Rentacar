@@ -2,14 +2,13 @@ package Entidades;
 
 
 public class Canton {
-        final int idCanton;
+        int idCanton;
         String Nombre;
 
-        public Canton(int idCanton, String Nombre) {
-            this.idCanton = idCanton;
-            this.Nombre = Nombre;
+        public void setIdCanton(int idCanton) {
+        this.idCanton = idCanton;
         }
-
+        
         public int getIdCanton() {
             return idCanton;
         }

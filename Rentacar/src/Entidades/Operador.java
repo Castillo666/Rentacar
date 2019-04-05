@@ -2,18 +2,15 @@ package Entidades;
 
 
 public class Operador {
-	final int cedula;
+	int cedula;
 	String nombre;
 	String correo;
 	String telefono;
 
-    public Operador(int cedula, String nombre, String correo, String telefono) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
-        this.nombre = nombre;
-        this.correo = correo;
-        this.telefono = telefono;
     }
-
+    
     public int getCedula() {
         return cedula;
     }
