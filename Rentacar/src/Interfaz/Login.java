@@ -5,6 +5,11 @@
  */
 package Interfaz;
 import Interfaz.Empresas;
+import Conexion.Conexion;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +25,8 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    
+    public static Login l = new Login();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,14 +86,25 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-       MenuPrincipal menu = new MenuPrincipal();
-       menu.setVisible(true);
-       this.setVisible(false);
-        
-        String usuario, password;
+       
+       
+       String usuario, password;
         
         usuario = txtCorreo.getText();
         password = txtPassword.getText();
+       
+       Conexion.getConexion();
+        Conexion con = new Conexion();
+       
+        try {
+            if (con.login(txtCorreo.getText() , txtPassword.getText()) == 1) {
+                MenuPrincipal menu = new MenuPrincipal();
+                menu.setVisible(true);
+                this.setVisible(false);
+            }} catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         
     }//GEN-LAST:event_btnIniciarSesionActionPerformed

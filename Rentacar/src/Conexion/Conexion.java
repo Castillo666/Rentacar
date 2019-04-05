@@ -56,4 +56,26 @@ public class Conexion {
         return null;
     }
     
+    public static int login(String usuario, String password) throws SQLException{
+        Connection conexion = getConexion();
+        
+        Integer resultado = 0;
+        try {
+            Statement ejecutor = conexion.createStatement();
+        ResultSet rs = ejecutor.executeQuery("Select * from esquema.roldeServicio Where usuario = '"+usuario+"' and contraseña = '"+password+"'");
+        
+            if (rs.next()){
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+                resultado = 1;
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
+                resultado = 0;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al conectar " +e.getMessage(),e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        
+        }
+        return resultado;
+    }
+    
 }
