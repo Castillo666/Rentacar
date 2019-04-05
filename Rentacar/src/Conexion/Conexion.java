@@ -85,6 +85,7 @@ public class Conexion {
         try {
             Statement ejecutor = conexion.createStatement();
         ResultSet rs = ejecutor.executeQuery("Select * from esquema.cliente Where cedula = '"+cedula+"'");
+            
         
             if (rs.next()){
                 JOptionPane.showMessageDialog(null, "El cliente ya existe");

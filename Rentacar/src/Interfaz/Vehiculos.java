@@ -265,7 +265,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
         vehiculo.setIdServicio(Integer.parseInt(txtServicio.getText()));
 
         
-        String resp = VehiculoOp.registrarVehiculo(vehiculo, fichero);
+      VehiculoOp.registrarVehiculo(vehiculo, fichero);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtKilometrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKilometrajeActionPerformed

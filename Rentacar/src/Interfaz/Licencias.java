@@ -201,7 +201,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
         licencia.setTipo(txtTipo.getText());
         licencia.setFechaExpiracion(fechaExp);
         
-        String resp = LicenciaOp.registrarLicencia(licencia,fichero);
+       LicenciaOp.registrarLicencia(licencia,fichero);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**

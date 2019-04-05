@@ -11,19 +11,16 @@ import Entidades.Cliente;
 import Operaciones.ClientesOp;
 import java.awt.Image;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import Interfaz.MenuPrincipal;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import Interfaz.Licencias;
+
 
 /**
  *
@@ -179,9 +176,11 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     }//GEN-LAST:event_btnFotoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-         Conexion.getConexion();
+        /*
+        Conexion.getConexion();
         Conexion con = new Conexion();
        
+     
         try {
             if (con.existeCliente(txtCedula.getText()) == 1) {
                 
@@ -196,12 +195,49 @@ if (JFileChooser.APPROVE_OPTION == resultado){
         
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        */
+        
+       String cedula = txtCedula.getText();
+        
+        Connection conexion = getConexion();
+        
+        boolean resultado = true;
+        
+        try {
+        
+    
+        Statement ejecutor = conexion.createStatement();
+        ResultSet rs = ejecutor.executeQuery("Select * from esquema.cliente Where cedula = '"+cedula+"'");
+            
+            while (rs.next()){
+                resultado = true;
+                JOptionPane.showMessageDialog(null, "El cliente ya existe");
+            }
+            
+             if (resultado == false) {
+                Cliente cliente = new Cliente();        
+                cliente.setDireccion(txtDireccion.getText());
+                cliente.setCedula(Integer.parseInt(txtCedula.getText()));
+                cliente.setCorreo(txtCorreo.getText());
+                cliente.setNombreCompleto(txtNombre.getText());
+                cliente.setTelefono(txtTelefono.getText());
+        
+               ClientesOp.registrarCliente(cliente, fichero);
+        
+                Licencias licencia = new Licencias();
+                licencia.setVisible(true);
+                this.setVisible(false);
+            
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al conectar " +e.getMessage(),e.getMessage(), JOptionPane.ERROR_MESSAGE);
+           
         }
         
-       Licencias licencia = new Licencias();
-       licencia.setVisible(true);
-       this.setVisible(false);
+      
        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
