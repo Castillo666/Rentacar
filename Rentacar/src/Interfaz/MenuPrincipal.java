@@ -89,13 +89,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblTitulo.setText("Menú Principal");
         getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 190, 40));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 102));
         jButton1.setText("Registrar Rol de Servicio");
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);

@@ -72,8 +72,6 @@ public class Vehiculos extends javax.swing.JFrame {
         txtSede = new javax.swing.JTextField();
         lblEstilo = new javax.swing.JLabel();
         txtEstilo = new javax.swing.JTextField();
-        lblEstado = new javax.swing.JLabel();
-        txtEstado = new javax.swing.JTextField();
         lblServicio = new javax.swing.JLabel();
         txtServicio = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
@@ -192,15 +190,10 @@ public class Vehiculos extends javax.swing.JFrame {
         getContentPane().add(lblEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, -1, -1));
         getContentPane().add(txtEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 145, -1));
 
-        lblEstado.setForeground(new java.awt.Color(255, 255, 255));
-        lblEstado.setText("Estado");
-        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, -1, -1));
-        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 148, -1));
-
         lblServicio.setForeground(new java.awt.Color(255, 255, 255));
         lblServicio.setText("IdServicio");
-        getContentPane().add(lblServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
-        getContentPane().add(txtServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 137, -1));
+        getContentPane().add(lblServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
+        getContentPane().add(txtServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 137, -1));
 
         btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setForeground(new java.awt.Color(0, 0, 102));
@@ -268,7 +261,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
         vehiculo.setTransmision(txtTransmision.getText());
         vehiculo.setSede(txtSede.getText());
         vehiculo.setEstilo(txtEstilo.getText());
-        vehiculo.setEstado(txtEstado.getText());
+        vehiculo.setEstado("Activo");
         vehiculo.setIdServicio(Integer.parseInt(txtServicio.getText()));
 
         
@@ -304,7 +297,6 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblCapacidad;
     private javax.swing.JLabel lblColor;
-    private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblEstilo;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblFoto;
@@ -320,7 +312,6 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     private javax.swing.JTextField txtCapacidad;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtCosto;
-    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtEstilo;
     private javax.swing.JTextField txtKilometraje;
     private javax.swing.JTextField txtMaletas;

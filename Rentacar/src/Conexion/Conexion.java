@@ -78,4 +78,26 @@ public class Conexion {
         return resultado;
     }
     
+      public static int existeCliente(String cedula) throws SQLException{
+        Connection conexion = getConexion();
+        
+        Integer resultado = 2;
+        try {
+            Statement ejecutor = conexion.createStatement();
+        ResultSet rs = ejecutor.executeQuery("Select * from esquema.cliente Where cedula = '"+cedula+"'");
+        
+            if (rs.next()){
+                JOptionPane.showMessageDialog(null, "El cliente ya existe");
+                resultado = 0;
+            } else {
+                resultado = 1;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al conectar " +e.getMessage(),e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        
+        }
+        return resultado;
+    }
+    
+    
 }

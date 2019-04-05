@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import Conexion.Conexion;
+import static Conexion.Conexion.getConexion;
 import Entidades.Cliente;
 import Operaciones.ClientesOp;
 import java.awt.Image;
@@ -15,6 +17,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import Interfaz.MenuPrincipal;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -170,15 +178,34 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     }//GEN-LAST:event_btnFotoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        Cliente cliente = new Cliente();
-        
-        cliente.setDireccion(txtDireccion.getText());
-        cliente.setCedula(Integer.parseInt(txtCedula.getText()));
-        cliente.setCorreo(txtCorreo.getText());
-        cliente.setNombreCompleto(txtNombre.getText());
-        cliente.setTelefono(txtTelefono.getText());
+         Conexion.getConexion();
+        Conexion con = new Conexion();
+       
+        try {
+            if (con.existeCliente(txtCedula.getText()) == 1) {
+                
+               Cliente cliente = new Cliente();        
+                cliente.setDireccion(txtDireccion.getText());
+                cliente.setCedula(Integer.parseInt(txtCedula.getText()));
+                cliente.setCorreo(txtCorreo.getText());
+                cliente.setNombreCompleto(txtNombre.getText());
+                cliente.setTelefono(txtTelefono.getText());
         
         String resp = ClientesOp.registrarCliente(cliente, fichero);
+        
+            } else {
+            txtDireccion.setText(" ");
+            txtCedula.setText(" ");
+            txtNombre.setText(" ");
+            txtCorreo.setText(" ");
+            txtTelefono.setText(" ");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+       
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnVlverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVlverActionPerformed
@@ -190,6 +217,8 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     /**
      * @param args the command line arguments
      */
+  
+    
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
