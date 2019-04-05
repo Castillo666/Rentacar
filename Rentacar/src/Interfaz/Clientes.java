@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Interfaz.Licencias;
 
 /**
  *
@@ -193,18 +194,14 @@ if (JFileChooser.APPROVE_OPTION == resultado){
         
         String resp = ClientesOp.registrarCliente(cliente, fichero);
         
-            } else {
-            txtDireccion.setText(" ");
-            txtCedula.setText(" ");
-            txtNombre.setText(" ");
-            txtCorreo.setText(" ");
-            txtTelefono.setText(" ");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+       Licencias licencia = new Licencias();
+       licencia.setVisible(true);
+       this.setVisible(false);
        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
