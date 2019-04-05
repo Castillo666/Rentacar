@@ -3,18 +3,14 @@ package Entidades;
 import java.util.Date;
 
 public class Reserva {
-    	final int idReserva;
+    	int idReserva;
 	Date fechaInicio;
 	Date fechaFinal;
 	Date fechaRegistro;
 	int idOperador;
 
-    public Reserva(int idReserva, Date fechaInicio, Date fechaFinal, Date fechaRegistro, int idOperador) {
+    public void setIdReserva(int idReserva) {
         this.idReserva = idReserva;
-        this.fechaInicio = fechaInicio;
-        this.fechaFinal = fechaFinal;
-        this.fechaRegistro = fechaRegistro;
-        this.idOperador = idOperador;
     }
 
     public int getIdReserva() {

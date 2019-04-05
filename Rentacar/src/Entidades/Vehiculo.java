@@ -18,26 +18,6 @@ public class Vehiculo {
 	String estado;
 	int idServicio;
 
-   /* public Vehiculo(String placa, int añoFabricacion, String color, String marca, int capacidad, int kilometraje, int numeroPuertas, String vin, int mpg, int costoDia, int capacidadMaletas, String transmision, String sede, String estilo, String estado, int idServicio) {
-        this.placa = placa;
-        this.añoFabricacion = añoFabricacion;
-        this.color = color;
-        this.marca = marca;
-        this.capacidad = capacidad;
-        this.kilometraje = kilometraje;
-        this.numeroPuertas = numeroPuertas;
-        this.vin = vin;
-        this.mpg = mpg;
-        this.costoDia = costoDia;
-        this.capacidadMaletas = capacidadMaletas;
-        this.transmision = transmision;
-        this.sede = sede;
-        this.estilo = estilo;
-        this.estado = estado;
-        this.idServicio = idServicio;
-    }
-        */
-
     public String getPlaca() {
         return placa;
     }

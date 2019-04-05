@@ -2,18 +2,15 @@ package Entidades;
 
 
 public class Factura {
-        final int numeroFactura;
+        int numeroFactura;
 	int placaVehiculo;
 	int cedulaCliente;
 	int monto;
 
-    public Factura(int numeroFactura, int placaVehiculo, int cedulaCliente, int monto) {
+    public void setNumeroFactura(int numeroFactura) {
         this.numeroFactura = numeroFactura;
-        this.placaVehiculo = placaVehiculo;
-        this.cedulaCliente = cedulaCliente;
-        this.monto = monto;
     }
-
+        
     public int getNumeroFactura() {
         return numeroFactura;
     }

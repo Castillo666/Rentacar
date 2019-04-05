@@ -21,8 +21,8 @@ public class enviar_correo {
     public static void enviar_correo(String to, String sub,String msg){
         Properties props = new Properties();
         
-        final String user = "kevcastilloh@gmail.com";
-        final String pass = "boladetrueno";
+        final String user = "rentacarkpr@gmail.com";
+        final String pass = "prograbases1";
         
         //acá se crea la conexion con el ap de java para correos
         props.put("mail.smtp.host", "smtp.gmail.com");

@@ -1,14 +1,13 @@
 package Entidades;
 
 public class Distrito {
-        final int idCanton;
+        int idCanton;
         String Nombre;
 
-    public Distrito(int idCanton, String Nombre) {
+    public void setIdCanton(int idCanton) {
         this.idCanton = idCanton;
-        this.Nombre = Nombre;
     }
-
+    
     public int getIdCanton() {
         return idCanton;
     }
