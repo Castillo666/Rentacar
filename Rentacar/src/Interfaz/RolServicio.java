@@ -5,6 +5,12 @@
  */
 package Interfaz;
 
+import Apis.enviarCorreo;
+import Entidades.RoldeServicio;
+import Operaciones.RolServicioOp;
+import Servicios.Password;
+import java.util.Arrays;
+
 /**
  *
  * @author Dell
@@ -28,27 +34,50 @@ public class RolServicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnEnviar = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 247, -1, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 170, 352, -1));
+
+        jLabel1.setText("Indicar direccion de correo electronico para generar usuario y contraseña");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 74, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        String contraseña = String.valueOf(Password.generatePswd());
+        enviarCorreo.send(txtCorreo.getText(),"Datos de Usuario", "Usuario: "+txtCorreo.getText()
+                +"\n\n"+"Contraseña: "+contraseña,"rentacarkpr@gmail.com", "prograbases1");
+        
+        RoldeServicio rol = new RoldeServicio();
+        rol.setUsuario(txtCorreo.getText());
+        rol.setContraseña(contraseña);
+        RolServicioOp.registrarRoldeServicio(rol);
+        this.setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEnviar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }

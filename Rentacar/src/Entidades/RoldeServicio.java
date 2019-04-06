@@ -1,7 +1,7 @@
 package Entidades;
 
 
-public class RolServicio {
+public class RoldeServicio {
     String usuario;
     String contraseña;
 

@@ -12,7 +12,7 @@ import java.util.Random;
  * @author Raquel Rojas
  */
 public class Password {
-    static char[] generatePswd() {
+    public static char[] generatePswd() {
         Random r = new Random();
         int len = r.nextInt((12 - 8) + 1) + 8;//para la logitud random entre 8-12
         String charsCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -29,9 +29,6 @@ public class Password {
             password[i] = passSymbols.charAt(rnd.nextInt(passSymbols.length()));
 
         }
-        System.out.println(password);
-        
-
         for (int a = 0; a < password.length; a++) {
             if (a != 0) {
                 if (Character.isUpperCase(password[a]) && Character.isUpperCase(password[a - 1])) {
