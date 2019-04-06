@@ -35,6 +35,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
+        registrarCliente1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(0, 0));
@@ -104,6 +105,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblFondo.setOpaque(true);
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 430));
 
+        registrarCliente1.setBackground(new java.awt.Color(255, 255, 255));
+        registrarCliente1.setForeground(new java.awt.Color(0, 0, 102));
+        registrarCliente1.setText("Registrar Cliente");
+        registrarCliente1.setBorderPainted(false);
+        registrarCliente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarCliente1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(registrarCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,6 +135,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
          ServMantenimiento servicio = new ServMantenimiento();
          servicio.setVisible(true);
          this.setVisible(false);
+       
+         
     }//GEN-LAST:event_registrarServMantenimientoActionPerformed
 
     private void btnRegVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegVehiculoActionPerformed
@@ -130,13 +144,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         vehiculo.setVisible(true);
         this.setVisible(false);
         
+        Filtrar filtrar = new Filtrar();
+        filtrar.setVisible(true);
+        
     }//GEN-LAST:event_btnRegVehiculoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         RolServicio rolserv = new RolServicio();
         rolserv.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void registrarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCliente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registrarCliente1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +170,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JButton registrarCliente;
+    private javax.swing.JButton registrarCliente1;
     private javax.swing.JButton registrarEmpresa;
     private javax.swing.JButton registrarServMantenimiento;
     // End of variables declaration//GEN-END:variables

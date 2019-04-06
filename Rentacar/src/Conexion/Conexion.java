@@ -23,7 +23,7 @@ public class Conexion {
    
     public static Connection getConexion(){
     
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=rentacar";
+        String url = "jdbc:sqlserver://DESKTOP-IPFGHFQ\\SQLEXPRESS:1433";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
@@ -99,6 +99,53 @@ public class Conexion {
         }
         return resultado;
     }
-    
+      
+    public ResultSet vehiculosFiltrados(String estilo,String sede, int desde, int hasta){
+        System.out.println(estilo);
+        Connection cn;
+        PreparedStatement pst;
+        ResultSet rs = null;
+        boolean existeFiltro = false;
+        try{
+           cn = getConexion(); 
+           String Where = "";
+           if (estilo != "sin filtro"){
+            existeFiltro = true;
+            Where = Where + " WHERE (estilo='" + estilo + "')";
+           }
+           if (sede != "sin filtro"){
+                if (existeFiltro == true){
+                   Where = Where + " and (sede = '"+ sede +"')";
+                }else{
+                   Where = " WHERE (sede = '"+ sede +"')";
+                   existeFiltro = true;}
+           }
+           if ( desde != 0){
+                if (existeFiltro == true){
+                    Where = Where + " and (CostoDia >= "+ desde +")";
+                }else{
+                    Where = " WHERE (CostoDia >= "+ desde +")";
+                    existeFiltro = true;}
+           }
+           if (hasta != 500){
+                if (existeFiltro == true){
+                    Where = Where + " and (CostoDia <= "+ hasta +")";
+                }else{
+                    Where = " WHERE (costoDia <= "+ hasta +")";
+                    existeFiltro = true;}
+           }
+           if (existeFiltro == true){
+            pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo " + Where);
+            System.out.println("SELECT * FROM esquema.vehiculo " + Where);
+           }else{
+            pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo");
+            System.out.println("SELECT * FROM esquema.vehiculo");
+           }
+           rs = pst.executeQuery();
+        }catch(Exception e){ 
+            System.out.println("Hubo error 1" + e);
+        }
+        return rs;
+    }
     
 }

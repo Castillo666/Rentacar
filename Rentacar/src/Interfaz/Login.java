@@ -87,7 +87,9 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
        
-       
+       MenuPrincipal menu = new MenuPrincipal();
+       menu.setVisible(true);
+       this.setVisible(false);
        String usuario, password;
         
         usuario = txtCorreo.getText();
@@ -96,14 +98,14 @@ public class Login extends javax.swing.JFrame {
        Conexion.getConexion();
         Conexion con = new Conexion();
        
-        try {
+        /*try {
             if (con.login(txtCorreo.getText() , txtPassword.getText()) == 1) {
                 MenuPrincipal menu = new MenuPrincipal();
                 menu.setVisible(true);
                 this.setVisible(false);
             }} catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
         
         
