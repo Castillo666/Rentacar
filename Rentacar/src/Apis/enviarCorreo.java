@@ -43,7 +43,7 @@ public class enviarCorreo
 
             Transport.send(message);
             
-            JOptionPane.showMessageDialog(null,"Información enviada al correo");
+            JOptionPane.showMessageDialog(null,"Datos enviados al correo electrónico");
             
         } catch (MessagingException e) 
         {
@@ -52,7 +52,5 @@ public class enviarCorreo
             throw new RuntimeException(e);
         }
         
-    }
-    public static void main(String[] args) {
     }
 }
