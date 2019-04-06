@@ -23,7 +23,7 @@ public class Conexion {
    
     public static Connection getConexion(){
     
-        String url = "jdbc:sqlserver://DESKTOP-IPFGHFQ\\SQLEXPRESS:1433";
+        String url = "jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=rentacar";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
@@ -81,14 +81,13 @@ public class Conexion {
       public static int existeCliente(String cedula) throws SQLException{
         Connection conexion = getConexion();
         
-        Integer resultado = 2;
+        int resultado = 2;
         try {
             Statement ejecutor = conexion.createStatement();
-        ResultSet rs = ejecutor.executeQuery("Select * from esquema.cliente Where cedula = '"+cedula+"'");
+        ResultSet rs = ejecutor.executeQuery("Select 1 from esquema.cliente Where cedula = '"+cedula+"'");
             
         
             if (rs.next()){
-                JOptionPane.showMessageDialog(null, "El cliente ya existe");
                 resultado = 0;
             } else {
                 resultado = 1;
