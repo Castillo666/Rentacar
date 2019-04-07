@@ -51,8 +51,8 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TipoCB = new javax.swing.JComboBox<>();
-        SedeCB = new javax.swing.JComboBox<>();
+        TipoCB = new javax.swing.JComboBox<String>();
+        SedeCB = new javax.swing.JComboBox<String>();
         txtDesde = new javax.swing.JTextField();
         txtHasta = new javax.swing.JTextField();
         filtrar = new javax.swing.JToggleButton();
@@ -61,9 +61,11 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         numPasajeros = new javax.swing.JTextField();
         imagen = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -92,7 +94,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
         TipoCB.setEditable(true);
-        TipoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "mini-van" }));
+        TipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "mini-van" }));
         TipoCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoCBActionPerformed(evt);
@@ -101,7 +103,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(TipoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 61, 120, -1));
 
         SedeCB.setForeground(new java.awt.Color(0, 0, 102));
-        SedeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        SedeCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
         getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 140, -1));
 
         txtDesde.setText("0");
@@ -124,7 +126,7 @@ public class Filtrar extends javax.swing.JFrame {
                 filtrarActionPerformed(evt);
             }
         });
-        getContentPane().add(filtrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 114, -1, -1));
+        getContentPane().add(filtrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
 
         Filtrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -164,6 +166,17 @@ public class Filtrar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 250, 170));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 102));
+        jButton1.setText("Volver");
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,6 +261,12 @@ public class Filtrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numPasajerosActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,6 +278,7 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TipoCB;
     private javax.swing.JToggleButton filtrar;
     private javax.swing.JLabel imagen;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -141,6 +141,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Clientes cliente = new Clientes();
         cliente.setVisible(true);
         this.setVisible(false);
+        
+        Licencias licencia = new Licencias();
+        licencia.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_registrarClienteActionPerformed
 
     private void registrarServMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarServMantenimientoActionPerformed

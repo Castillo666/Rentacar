@@ -208,7 +208,7 @@ public class Vehiculos extends javax.swing.JFrame {
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 770, 710));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -233,7 +233,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
                ImageIcon icon = new ImageIcon(fichero.toString());
                Icon icono = new ImageIcon(icon.getImage().getScaledInstance(lblFoto.getWidth(),
                        lblFoto.getHeight(), Image.SCALE_DEFAULT));
-               lblFoto.setText(null);
+               lblFoto.setText("A");
                lblFoto.setIcon( icono );
         }catch(Exception ex){
 

@@ -50,9 +50,6 @@ public class Licencias extends javax.swing.JFrame {
         txtFechaE = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtFechaExp = new javax.swing.JTextField();
-        fotoLicencia = new javax.swing.JLabel();
-        lblFoto = new javax.swing.JLabel();
-        btnFoto = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         lblTipo = new javax.swing.JLabel();
@@ -86,22 +83,6 @@ public class Licencias extends javax.swing.JFrame {
 
         txtFechaExp.setText("dd/mm/yyyy");
         getContentPane().add(txtFechaExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 184, 119, -1));
-        getContentPane().add(fotoLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 216, 135));
-
-        lblFoto.setForeground(new java.awt.Color(255, 255, 255));
-        lblFoto.setText("Foto:");
-        getContentPane().add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
-
-        btnFoto.setBackground(new java.awt.Color(255, 255, 255));
-        btnFoto.setForeground(new java.awt.Color(0, 0, 102));
-        btnFoto.setText("Elegir Foto");
-        btnFoto.setBorderPainted(false);
-        btnFoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFotoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 441, -1, -1));
 
         btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setForeground(new java.awt.Color(0, 0, 102));
@@ -112,7 +93,7 @@ public class Licencias extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 488, 109, -1));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 109, -1));
 
         btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setForeground(new java.awt.Color(0, 0, 102));
@@ -123,7 +104,7 @@ public class Licencias extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 533, -1, -1));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("Tipo");
@@ -132,7 +113,7 @@ public class Licencias extends javax.swing.JFrame {
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 580));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,35 +125,6 @@ public class Licencias extends javax.swing.JFrame {
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
-        int resultado;
-
-        Licencias ventana = new Licencias();
-        
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG y PNG","jpg","png");
-        ventana.chooserFoto.setFileFilter(filtro);
-        resultado= ventana.chooserFoto.showOpenDialog(null);
-
-
-if (JFileChooser.APPROVE_OPTION == resultado){
-
-
-        fichero = ventana.chooserFoto.getSelectedFile();
-        try{
-               ImageIcon icon = new ImageIcon(fichero.toString());
-               Icon icono = new ImageIcon(icon.getImage().getScaledInstance(lblFoto.getWidth(),
-                       lblFoto.getHeight(), Image.SCALE_DEFAULT));
-               lblFoto.setText(null);
-               lblFoto.setIcon( icono );
-        }catch(Exception ex){
-
-           JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);
-         
-        }
-    
- }
-    }//GEN-LAST:event_btnFotoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
          Licencia licencia = new Licencia();
@@ -210,16 +162,13 @@ if (JFileChooser.APPROVE_OPTION == resultado){
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JFileChooser chooserFoto;
-    private javax.swing.JLabel fotoLicencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblFechaE;
     private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtCedula;

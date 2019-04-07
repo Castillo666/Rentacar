@@ -191,7 +191,7 @@ public class ServMantenimiento extends javax.swing.JFrame {
         servicio.setMonto(Integer.parseInt(txtMonto.getText()));
         servicio.setTipoServicio(txtTipoServicio.getText());
         
-        String resp = ServMantenimientoOp.registrarServMantenimiento(servicio);
+        ServMantenimientoOp.registrarServMantenimiento(servicio);
     }//GEN-LAST:event_btbRegistrarActionPerformed
 
     private void txtFechaFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinActionPerformed

@@ -222,10 +222,6 @@ if (JFileChooser.APPROVE_OPTION == resultado){
                         cliente.setTelefono(txtTelefono.getText());
         
                         ClientesOp.registrarCliente(cliente, fichero);
-        
-                        Licencias licencia = new Licencias();
-                        licencia.setVisible(true);
-                        this.setVisible(false);
                         }
             
             

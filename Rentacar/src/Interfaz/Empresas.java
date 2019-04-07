@@ -133,7 +133,7 @@ public class Empresas extends javax.swing.JFrame {
         emp.setIdDistrito(Integer.parseInt(txtDistrito.getText()));
         emp.setSeñas(txtSeñas.getText());
         
-        String resp = EmpresaOp.registrarEmpresa(emp);
+        EmpresaOp.registrarEmpresa(emp);
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

@@ -37,6 +37,7 @@ public class RolServicio extends javax.swing.JFrame {
         btnEnviar = new javax.swing.JButton();
         txtCorreo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -48,11 +49,17 @@ public class RolServicio extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 247, -1, -1));
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 170, 352, -1));
+        getContentPane().add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 352, -1));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Indicar direccion de correo electronico para generar usuario y contraseña");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 74, -1, -1));
+        jLabel1.setToolTipText("");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 530, 70));
+
+        lblFondo.setBackground(new java.awt.Color(0, 0, 102));
+        lblFondo.setOpaque(true);
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 550, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,6 +85,7 @@ public class RolServicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }

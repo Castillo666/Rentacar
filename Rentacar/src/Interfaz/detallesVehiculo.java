@@ -65,142 +65,77 @@ public class detallesVehiculo extends javax.swing.JFrame {
         mbg = new javax.swing.JTextField();
         Capacidad = new javax.swing.JTextField();
         cerrar = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Placa:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 57, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Número de puertas:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Capacidad:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 172, -1, -1));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Transmisión: ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 109, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Maletas:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 55, -1, -1));
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Detalles del Vehiculo ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 16, -1, -1));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Vin:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 172, -1, -1));
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Mbg:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 226, -1, -1));
 
         Transmision.setEditable(false);
+        getContentPane().add(Transmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 68, -1));
 
         vin.setEditable(false);
+        getContentPane().add(vin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 47, -1));
 
         MaletasField.setEditable(false);
+        getContentPane().add(MaletasField, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 52, 47, -1));
 
         PlacaField.setEditable(false);
+        getContentPane().add(PlacaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 54, 55, -1));
 
         Puertas.setEditable(false);
+        getContentPane().add(Puertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 106, 51, -1));
 
         mbg.setEditable(false);
+        getContentPane().add(mbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 223, 47, -1));
 
         Capacidad.setEditable(false);
+        getContentPane().add(Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 51, -1));
 
+        cerrar.setBackground(new java.awt.Color(255, 255, 255));
+        cerrar.setForeground(new java.awt.Color(0, 0, 153));
         cerrar.setText("Cerrar");
         cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cerrarActionPerformed(evt);
             }
         });
+        getContentPane().add(cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 293, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jLabel3)
-                                        .addGap(43, 43, 43))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Capacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Puertas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel5)
-                                        .addGap(4, 4, 4))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel7))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(MaletasField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(vin, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(mbg, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 49, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Transmision))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(PlacaField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cerrar)
-                .addGap(162, 162, 162))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(MaletasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(PlacaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(Transmision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Puertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7)
-                    .addComponent(vin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Capacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(mbg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(cerrar)
-                .addGap(19, 19, 19))
-        );
+        lblFondo.setBackground(new java.awt.Color(0, 0, 102));
+        lblFondo.setOpaque(true);
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,37 +148,6 @@ public class detallesVehiculo extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(detallesVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(detallesVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(detallesVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(detallesVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new detallesVehiculo().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Capacidad;
@@ -260,6 +164,7 @@ public class detallesVehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JTextField mbg;
     private javax.swing.JTextField vin;
     // End of variables declaration//GEN-END:variables
