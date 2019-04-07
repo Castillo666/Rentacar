@@ -34,8 +34,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnRegVehiculo = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnEditarVehiculo = new javax.swing.JButton();
+        btnFiltrar = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
-        registrarCliente1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(0, 0));
@@ -101,20 +102,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
+        btnEditarVehiculo.setBackground(new java.awt.Color(255, 255, 255));
+        btnEditarVehiculo.setForeground(new java.awt.Color(0, 0, 102));
+        btnEditarVehiculo.setText("Editar Vehiculo");
+        btnEditarVehiculo.setBorderPainted(false);
+        btnEditarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarVehiculoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEditarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
+
+        btnFiltrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnFiltrar.setForeground(new java.awt.Color(0, 0, 102));
+        btnFiltrar.setText("Filtrar Vehiculos");
+        btnFiltrar.setBorderPainted(false);
+        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
+
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 430));
-
-        registrarCliente1.setBackground(new java.awt.Color(255, 255, 255));
-        registrarCliente1.setForeground(new java.awt.Color(0, 0, 102));
-        registrarCliente1.setText("Registrar Cliente");
-        registrarCliente1.setBorderPainted(false);
-        registrarCliente1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarCliente1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(registrarCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,10 +155,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Vehiculos vehiculo = new Vehiculos();
         vehiculo.setVisible(true);
         this.setVisible(false);
-        
-        Filtrar filtrar = new Filtrar();
-        filtrar.setVisible(true);
-        
+                
     }//GEN-LAST:event_btnRegVehiculoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -156,21 +165,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void registrarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registrarCliente1ActionPerformed
+    private void btnEditarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarVehiculoActionPerformed
+        EditarVehiculos editar = new EditarVehiculos();
+        editar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEditarVehiculoActionPerformed
+
+    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
+        Filtrar filtrar = new Filtrar();
+        filtrar.setVisible(true);
+    }//GEN-LAST:event_btnFiltrarActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditarVehiculo;
+    private javax.swing.JButton btnFiltrar;
     private javax.swing.JButton btnRegVehiculo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JButton registrarCliente;
-    private javax.swing.JButton registrarCliente1;
     private javax.swing.JButton registrarEmpresa;
     private javax.swing.JButton registrarServMantenimiento;
     // End of variables declaration//GEN-END:variables

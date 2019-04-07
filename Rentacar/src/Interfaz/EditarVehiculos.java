@@ -21,9 +21,9 @@ import Interfaz.MenuPrincipal;
  *
  * @author marip
  */
-public class Vehiculos extends javax.swing.JFrame {
+public class EditarVehiculos extends javax.swing.JFrame {
 
-    public Vehiculos() {
+    public EditarVehiculos() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -49,7 +49,7 @@ public class Vehiculos extends javax.swing.JFrame {
         lblCapacidad = new javax.swing.JLabel();
         lblFoto2 = new javax.swing.JLabel();
         btnFoto = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         txtMarca = new javax.swing.JTextField();
         txtCapacidad = new javax.swing.JTextField();
         lblFoto = new javax.swing.JLabel();
@@ -75,6 +75,8 @@ public class Vehiculos extends javax.swing.JFrame {
         lblServicio = new javax.swing.JLabel();
         txtServicio = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtEstado = new javax.swing.JTextField();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,7 +85,7 @@ public class Vehiculos extends javax.swing.JFrame {
 
         lblVehiculo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblVehiculo.setForeground(new java.awt.Color(255, 255, 255));
-        lblVehiculo.setText("Nuevo Vehiculo");
+        lblVehiculo.setText("Editar Vehiculo");
         getContentPane().add(lblVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 23, -1, -1));
 
         lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,16 +126,16 @@ public class Vehiculos extends javax.swing.JFrame {
         });
         getContentPane().add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 607, -1, -1));
 
-        btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegistrar.setForeground(new java.awt.Color(0, 0, 102));
-        btnRegistrar.setText("Registrar Vehiculo");
-        btnRegistrar.setBorderPainted(false);
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setForeground(new java.awt.Color(0, 0, 102));
+        btnActualizar.setText("Actualizar Vehiculo");
+        btnActualizar.setBorderPainted(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 662, -1, -1));
+        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 662, -1, -1));
         getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 170, -1));
         getContentPane().add(txtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 166, -1));
         getContentPane().add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 316, 227));
@@ -192,8 +194,8 @@ public class Vehiculos extends javax.swing.JFrame {
 
         lblServicio.setForeground(new java.awt.Color(255, 255, 255));
         lblServicio.setText("IdServicio");
-        getContentPane().add(lblServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
-        getContentPane().add(txtServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 137, -1));
+        getContentPane().add(lblServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, -1, -1));
+        getContentPane().add(txtServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 137, -1));
 
         btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setForeground(new java.awt.Color(0, 0, 102));
@@ -206,9 +208,14 @@ public class Vehiculos extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 660, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Estado");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
+        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 140, -1));
+
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 770, 710));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -218,7 +225,7 @@ public class Vehiculos extends javax.swing.JFrame {
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         int resultado;
 
-        Vehiculos ventana = new Vehiculos();
+        EditarVehiculos ventana = new EditarVehiculos();
         
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG y PNG","jpg","png");
         ventana.chooserFoto.setFileFilter(filtro);
@@ -244,16 +251,10 @@ if (JFileChooser.APPROVE_OPTION == resultado){
  }
     }//GEN-LAST:event_btnFotoActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-       if (!txtPlaca.getText().isEmpty() & !txtAño.getText().isEmpty() & !txtColor.getText().isEmpty() & !txtMarca.getText().isEmpty() & !txtCapacidad.getText().isEmpty()
-    & !txtKilometraje.getText().isEmpty() & !txtPuertas.getText().isEmpty() & !txtVin.getText().isEmpty() & !txtMillas.getText().isEmpty()
-    & !txtCosto.getText().isEmpty() & !txtMaletas.getText().isEmpty() & !txtTransmision.getText().isEmpty() & !txtSede.getText().isEmpty()
-    & !txtEstilo.getText().isEmpty() & !txtServicio.getText().isEmpty()) {
-       
-         if (!lblFoto.getText().isEmpty()) {
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
          
                 Vehiculo vehiculo = new Vehiculo();
-        
                 vehiculo.setPlaca(txtPlaca.getText());
                 vehiculo.setAñoFabricacion(Integer.parseInt(txtAño.getText()));
                 vehiculo.setColor(txtColor.getText());
@@ -268,22 +269,12 @@ if (JFileChooser.APPROVE_OPTION == resultado){
                 vehiculo.setTransmision(txtTransmision.getText());
                 vehiculo.setSede(txtSede.getText());
                 vehiculo.setEstilo(txtEstilo.getText());
-                vehiculo.setEstado("Activo");
+                vehiculo.setEstado(txtEstado.getText());
                 vehiculo.setIdServicio(Integer.parseInt(txtServicio.getText()));
-                VehiculoOp.registrarVehiculo(vehiculo, fichero);
-         
-            } else {
-             
-             JOptionPane.showMessageDialog(null, "Por Favor cargar la imagen");
-            }  
-           
-       } else {
-       
-           JOptionPane.showMessageDialog(null, "Por Favor llenar todos los espacios");
-       }
+                VehiculoOp.actualizarVehiculo(vehiculo, fichero);
         
         
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txtKilometrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKilometrajeActionPerformed
         // TODO add your handling code here:
@@ -301,8 +292,8 @@ if (JFileChooser.APPROVE_OPTION == resultado){
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnFoto;
-    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JFileChooser chooserFoto;
     private javax.swing.JFileChooser jFileChooser1;
@@ -310,6 +301,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblCapacidad;
@@ -329,6 +321,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
     private javax.swing.JTextField txtCapacidad;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtCosto;
+    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtEstilo;
     private javax.swing.JTextField txtKilometraje;
     private javax.swing.JTextField txtMaletas;
