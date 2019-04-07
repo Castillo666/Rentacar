@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +25,8 @@ public class Conexion {
    
     public static Connection getConexion(){
     
-        String url = "jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=rentacar";
+        //String url = "jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=rentacar";
+        String url = "jdbc:sqlserver://DESKTOP-IPFGHFQ\\SQLEXPRESS:1433";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
@@ -100,7 +103,6 @@ public class Conexion {
     }
       
     public ResultSet vehiculosFiltrados(String estilo,String sede, int desde, int hasta){
-        System.out.println(estilo);
         Connection cn;
         PreparedStatement pst;
         ResultSet rs = null;
@@ -143,6 +145,20 @@ public class Conexion {
            rs = pst.executeQuery();
         }catch(Exception e){ 
             System.out.println("Hubo error 1" + e);
+        }
+        return rs;
+    }
+    public ResultSet vehiculo(String placa) throws SQLException{
+        Connection cn;
+        PreparedStatement pst;
+        ResultSet rs = null;
+        cn = getConexion();
+        try {
+            pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo WHERE placa = '" + placa + "'");
+            System.out.println("SELECT * FROM esquema.vehiculo WHERE placa = '" + placa + "'");
+            rs = pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }

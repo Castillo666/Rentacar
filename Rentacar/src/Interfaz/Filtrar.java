@@ -6,11 +6,19 @@
 package Interfaz;
 
 import Conexion.Conexion;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -43,13 +51,14 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TipoCB = new javax.swing.JComboBox<String>();
-        SedeCB = new javax.swing.JComboBox<String>();
+        TipoCB = new javax.swing.JComboBox<>();
+        SedeCB = new javax.swing.JComboBox<>();
         txtDesde = new javax.swing.JTextField();
         txtHasta = new javax.swing.JTextField();
         filtrar = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Filtrados = new javax.swing.JTable();
+        imagen = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,7 +90,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 64, -1, -1));
 
         TipoCB.setEditable(true);
-        TipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "mini-van" }));
+        TipoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "mini-van" }));
         TipoCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoCBActionPerformed(evt);
@@ -90,7 +99,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(TipoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 61, 120, -1));
 
         SedeCB.setForeground(new java.awt.Color(0, 0, 102));
-        SedeCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        SedeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
         getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 61, -1, -1));
 
         txtDesde.setText("0");
@@ -126,13 +135,19 @@ public class Filtrar extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Filtrados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FiltradosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Filtrados);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 196, -1, 169));
+        getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 250, 170));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 440));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,15 +176,39 @@ public class Filtrar extends javax.swing.JFrame {
         }catch(Exception e){System.out.println("Hubo error" + e);}
         
         
-        
-        
-        
-        
+           
     }//GEN-LAST:event_filtrarActionPerformed
 
     private void TipoCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TipoCBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TipoCBActionPerformed
+
+    private void FiltradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FiltradosMouseClicked
+        int selectedRow = Filtrados.getSelectedRow();
+        String placaImg = Filtrados.getModel().getValueAt(selectedRow,0).toString();
+        System.out.println(placaImg);
+        
+        Conexion cc = new Conexion();
+        try {
+            ResultSet rs = cc.vehiculo(placaImg);
+            rs.next();
+            
+            Blob foto = rs.getBlob("fotoVehiculo");
+            byte []recu = foto.getBytes(1, (int) foto.length());
+            BufferedImage img = ImageIO.read(new ByteArrayInputStream(recu));
+            
+            Image imges = img.getScaledInstance(imagen.getWidth(),imagen.getHeight(), Image.SCALE_SMOOTH);
+                
+            imagen.setIcon(new ImageIcon(imges));
+        } catch (SQLException ex) {
+            System.out.println("1.");
+            Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            System.out.println("2.");
+            Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_FiltradosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -181,6 +220,7 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> SedeCB;
     private javax.swing.JComboBox<String> TipoCB;
     private javax.swing.JToggleButton filtrar;
+    private javax.swing.JLabel imagen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
