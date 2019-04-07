@@ -51,7 +51,7 @@ public class Prueba extends javax.swing.JFrame {
     private void initComponents() {
 
         imagen = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        mostrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         foto = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -59,10 +59,10 @@ public class Prueba extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Mostrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        mostrar.setText("Mostrar");
+        mostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                mostrarActionPerformed(evt);
             }
         });
 
@@ -91,7 +91,7 @@ public class Prueba extends javax.swing.JFrame {
                         .addComponent(foto, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jButton1)
+                        .addComponent(mostrar)
                         .addGap(30, 30, 30)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
@@ -102,7 +102,7 @@ public class Prueba extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(469, 469, 469)
                         .addComponent(eleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(105, 105, 105))
+                .addGap(85, 85, 85))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +111,7 @@ public class Prueba extends javax.swing.JFrame {
                 .addComponent(foto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(mostrar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton2)
                         .addComponent(jButton3)))
@@ -124,7 +124,7 @@ public class Prueba extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         try {
             consultar1();
         } catch (SQLException ex) {
@@ -132,7 +132,7 @@ public class Prueba extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_mostrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
@@ -189,6 +189,7 @@ Icon icono = new ImageIcon(icon.getImage().getScaledInstance(foto.getWidth(), fo
             Blob fotos = rs.getBlob(1);
             byte []recuperar = fotos.getBytes(1, (int) fotos.length());
             BufferedImage img = ImageIO.read(new ByteArrayInputStream(recuperar));
+            
             
             Image imges = img.getScaledInstance(imagen.getWidth(),imagen.getHeight(), Image.SCALE_SMOOTH);
             
@@ -263,8 +264,8 @@ Icon icono = new ImageIcon(icon.getImage().getScaledInstance(foto.getWidth(), fo
     public static javax.swing.JFileChooser eleccion;
     private javax.swing.JLabel foto;
     private javax.swing.JLabel imagen;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton mostrar;
     // End of variables declaration//GEN-END:variables
 }
