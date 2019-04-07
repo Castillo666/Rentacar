@@ -150,12 +150,13 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel2.setText("Capacidad de Pasajeros:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
 
+        numPasajeros.setText("0");
         numPasajeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numPasajerosActionPerformed(evt);
             }
         });
-        getContentPane().add(numPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 70, 20));
+        getContentPane().add(numPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 70, 20));
 
         imagen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

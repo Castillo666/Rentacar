@@ -102,7 +102,7 @@ public class Conexion {
         return resultado;
     }
       
-    public ResultSet vehiculosFiltrados(String estilo,String sede, int desde, int hasta){
+    public ResultSet vehiculosFiltrados(String estilo,String sede, int desde, int hasta,int pasajero){
         Connection cn;
         PreparedStatement pst;
         ResultSet rs = null;
@@ -135,6 +135,13 @@ public class Conexion {
                     Where = " WHERE (costoDia <= "+ hasta +")";
                     existeFiltro = true;}
            }
+           if (pasajero != 0){
+                if (existeFiltro == true){
+                    Where = Where + " and (capacidad = "+ pasajero +")";
+                }else{
+                    Where = " WHERE (capacidad = "+ pasajero +")";
+                    existeFiltro = true;}
+           }
            if (existeFiltro == true){
             pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo " + Where);
             System.out.println("SELECT * FROM esquema.vehiculo " + Where);
@@ -142,6 +149,7 @@ public class Conexion {
             pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo");
             System.out.println("SELECT * FROM esquema.vehiculo");
            }
+           
            rs = pst.executeQuery();
         }catch(Exception e){ 
             System.out.println("Hubo error 1" + e);
