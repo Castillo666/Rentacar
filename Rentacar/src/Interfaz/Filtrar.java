@@ -62,6 +62,11 @@ public class Filtrar extends javax.swing.JFrame {
         numPasajeros = new javax.swing.JTextField();
         imagen = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        SedeDejar = new javax.swing.JComboBox<>();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,28 +75,28 @@ public class Filtrar extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Filtrar Vehiculo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 16, -1, -1));
+        jLabel1.setText("Seleccionar Vehiculo");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("Estilo:");
-        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 64, -1, -1));
+        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Precio:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Recoger en:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jLabel4.setText("Dejar en: ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("a");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 64, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("De");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
         TipoCB.setEditable(true);
         TipoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "minivan" }));
@@ -100,11 +105,11 @@ public class Filtrar extends javax.swing.JFrame {
                 TipoCBActionPerformed(evt);
             }
         });
-        getContentPane().add(TipoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 61, 120, -1));
+        getContentPane().add(TipoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 120, -1));
 
         SedeCB.setForeground(new java.awt.Color(0, 0, 102));
         SedeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
-        getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 140, -1));
+        getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 140, -1));
 
         txtDesde.setText("0");
         txtDesde.addActionListener(new java.awt.event.ActionListener() {
@@ -112,10 +117,10 @@ public class Filtrar extends javax.swing.JFrame {
                 txtDesdeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 38, -1));
+        getContentPane().add(txtDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 38, -1));
 
         txtHasta.setText("500");
-        getContentPane().add(txtHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 61, 48, -1));
+        getContentPane().add(txtHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 48, -1));
 
         filtrar.setBackground(new java.awt.Color(255, 255, 255));
         filtrar.setForeground(new java.awt.Color(0, 0, 102));
@@ -126,7 +131,7 @@ public class Filtrar extends javax.swing.JFrame {
                 filtrarActionPerformed(evt);
             }
         });
-        getContentPane().add(filtrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+        getContentPane().add(filtrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
 
         Filtrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,11 +151,11 @@ public class Filtrar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Filtrados);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 196, -1, 169));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, 169));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Capacidad de Pasajeros:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         numPasajeros.setText("0");
         numPasajeros.addActionListener(new java.awt.event.ActionListener() {
@@ -158,14 +163,14 @@ public class Filtrar extends javax.swing.JFrame {
                 numPasajerosActionPerformed(evt);
             }
         });
-        getContentPane().add(numPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 70, 20));
+        getContentPane().add(numPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 70, 20));
 
         imagen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMouseClicked(evt);
             }
         });
-        getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 250, 170));
+        getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 250, 170));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
@@ -176,12 +181,31 @@ public class Filtrar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 610, 10));
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Sedes y fechas");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Reservar");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Recoger en:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        SedeDejar.setForeground(new java.awt.Color(0, 0, 102));
+        SedeDejar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        getContentPane().add(SedeDejar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 140, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setForeground(new java.awt.Color(255, 255, 255));
         lblFondo.setOpaque(true);
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 440));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -275,6 +299,7 @@ public class Filtrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Filtrados;
     private javax.swing.JComboBox<String> SedeCB;
+    private javax.swing.JComboBox<String> SedeDejar;
     private javax.swing.JComboBox<String> TipoCB;
     private javax.swing.JToggleButton filtrar;
     private javax.swing.JLabel imagen;
@@ -285,7 +310,11 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JTextField numPasajeros;
