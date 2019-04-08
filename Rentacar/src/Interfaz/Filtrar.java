@@ -51,8 +51,8 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TipoCB = new javax.swing.JComboBox<String>();
-        SedeCB = new javax.swing.JComboBox<String>();
+        TipoCB = new javax.swing.JComboBox<>();
+        SedeCB = new javax.swing.JComboBox<>();
         txtDesde = new javax.swing.JTextField();
         txtHasta = new javax.swing.JTextField();
         filtrar = new javax.swing.JToggleButton();
@@ -74,7 +74,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 16, -1, -1));
 
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTipo.setText("Tipo:");
+        lblTipo.setText("Estilo:");
         getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 64, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,7 +82,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Sede:");
+        jLabel4.setText("Recoger en:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,7 +94,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
         TipoCB.setEditable(true);
-        TipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "mini-van" }));
+        TipoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "minivan" }));
         TipoCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoCBActionPerformed(evt);
@@ -103,8 +103,8 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(TipoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 61, 120, -1));
 
         SedeCB.setForeground(new java.awt.Color(0, 0, 102));
-        SedeCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
-        getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 140, -1));
+        SedeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 140, -1));
 
         txtDesde.setText("0");
         txtDesde.addActionListener(new java.awt.event.ActionListener() {

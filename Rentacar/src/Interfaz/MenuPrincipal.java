@@ -36,6 +36,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnEditarVehiculo = new javax.swing.JButton();
         btnFiltrar = new javax.swing.JButton();
+        reservar = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,7 +123,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnFiltrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
+        getContentPane().add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
+
+        reservar.setText("Reservar");
+        reservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
@@ -180,6 +189,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         filtrar.setVisible(true);
     }//GEN-LAST:event_btnFiltrarActionPerformed
 
+    private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
+        // TODO add your handling code here:
+        Reserva reserva = new Reserva();
+        reserva.setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_reservarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -194,5 +212,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton registrarCliente;
     private javax.swing.JButton registrarEmpresa;
     private javax.swing.JButton registrarServMantenimiento;
+    private javax.swing.JButton reservar;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,7 +25,8 @@ public class Conexion {
    
     public static Connection getConexion(){
     
-        String url = "jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=rentacar";
+        //String url = "jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=rentacar";
+        String url = "jdbc:sqlserver://DESKTOP-IPFGHFQ\\SQLEXPRESS:1433";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
@@ -169,5 +170,22 @@ public class Conexion {
         }
         return rs;
     }
+    
+     public static ResultSet obtenerCliente(String cedula){
+        Connection cn;
+        PreparedStatement pst;
+        ResultSet rs = null;
+        cn = getConexion();
+        try {
+            pst = cn.prepareStatement("SELECT * FROM esquema.cliente WHERE cedula = '" + cedula + "'");
+            rs = pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    
+    
+    
     
 }
