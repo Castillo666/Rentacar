@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -68,53 +69,43 @@ public class VehiculoOp {
         return result;
     }
      
-     public static String actualizarVehiculo(Vehiculo vehiculo, File file1) {
+     public static String actualizarVehiculo(Vehiculo vehiculo, File file) throws SQLException, FileNotFoundException {
         String result = null, last = null;
         Conexion cc = new Conexion();
         Connection cn = cc.getConexion();
-        PreparedStatement pst = null;
-        String sql = "UPDATE esquema.vehiculo SET añoFabricacion = ?,color = ?,marca = ?,capacidad = ?,kilometraje = ?,numeroPuertas = ?,vin = ?,mpg = ?,costoDia = ?,capacidadMaletas = ?,transmision = ?,sede = ?,estilo = ?,estado = ?,idServicio = ?,fotoVehiculo = ? WHERE placa=?";
-        try {
-            pst = cn.prepareStatement(sql);
+        String UpdateQuery = "UPDATE esquema.vehiculo SET añoFabricacion = ?,color = ?,marca = ?,capacidad = ?,kilometraje = ?,numeroPuertas = ?,vin = ?,mpg = ?,costoDia = ?,capacidadMaletas = ?,transmision = ?,sede = ?,estilo = ?,estado = ?,idServicio = ? WHERE placa=?";
+        String sql = "update esquema.vehiculo set fotoVehiculo =? where placa =?";
+        String placa = vehiculo.getPlaca();
+            
+            PreparedStatement pst = cc.getConexion().prepareStatement(UpdateQuery);
+            PreparedStatement stmt = cc.getConexion().prepareStatement(sql);
             pst.setInt(1, vehiculo.getAñoFabricacion());
-                pst.setString(2, vehiculo.getColor());
-                pst.setString(3, vehiculo.getMarca());
-                pst.setInt(4, vehiculo.getCapacidad());
-                pst.setInt(5, vehiculo.getKilometraje());
-                pst.setInt(6, vehiculo.getNumeroPuertas());
-                pst.setString(7, vehiculo.getVin());
-                pst.setInt(8, vehiculo.getMpg());
-                pst.setInt(9, vehiculo.getCostoDia());
-                pst.setInt(10, vehiculo.getCapacidadMaletas());
-                pst.setString(11, vehiculo.getTransmision());
-                pst.setString(12, vehiculo.getSede());
-                pst.setString(13, vehiculo.getEstilo());
-                pst.setString(14, vehiculo.getEstado());
-                pst.setInt(15, vehiculo.getIdServicio());
-                pst.setString(16, vehiculo.getPlaca());
+            pst.setString(2, vehiculo.getColor());
+            pst.setString(3, vehiculo.getMarca());
+            pst.setInt(4, vehiculo.getCapacidad());
+            pst.setInt(5, vehiculo.getKilometraje());
+            pst.setInt(6, vehiculo.getNumeroPuertas());
+            pst.setString(7, vehiculo.getVin());
+            pst.setInt(8, vehiculo.getMpg());
+            pst.setInt(9, vehiculo.getCostoDia());
+            pst.setInt(10, vehiculo.getCapacidadMaletas());
+            pst.setString(11, vehiculo.getTransmision());
+            pst.setString(12, vehiculo.getSede());
+            pst.setString(13, vehiculo.getEstilo());
+            pst.setString(14, vehiculo.getEstado());
+            pst.setInt(15, vehiculo.getIdServicio());
+            pst.setString(16, placa);
+            InputStream fic = new FileInputStream(file.getPath());
                 
-                FileInputStream fic;
-            try {
-                fic = new FileInputStream(file1);
-                 pst.setBinaryStream(17, fic, (int) file1.length());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(VehiculoOp.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            stmt.setBlob(1, fic);
+            stmt.setString(2, placa);
 
             pst.execute();
-
-        } catch (SQLException e) {
-            result = "Error en la consulta: " + e.getMessage();
-        } finally {
-            try {
-                if (cn != null) {
-                    cn.close();
-                    pst.close();
-                }
-            } catch (Exception e) {
-                result = "Error: " + e;
-            }
-        }
+            pst.close();
+            
+            stmt.execute();
+            stmt.close();
+            
         return result;
      }
     
