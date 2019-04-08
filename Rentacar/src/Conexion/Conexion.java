@@ -25,8 +25,8 @@ public class Conexion {
    
     public static Connection getConexion(){
     
-        //String url = "jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=rentacar";
-        String url = "jdbc:sqlserver://DESKTOP-IPFGHFQ\\SQLEXPRESS:1433";
+        String url = "jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=rentacar";
+        //String url = "jdbc:sqlserver://DESKTOP-IPFGHFQ\\SQLEXPRESS:1433";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
