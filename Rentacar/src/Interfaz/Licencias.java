@@ -51,7 +51,6 @@ public class Licencias extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtFechaExp = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
         lblTipo = new javax.swing.JLabel();
         txtTipo = new javax.swing.JTextField();
         lblFondo = new javax.swing.JLabel();
@@ -95,17 +94,6 @@ public class Licencias extends javax.swing.JFrame {
         });
         getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 109, -1));
 
-        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
-        btnVolver.setForeground(new java.awt.Color(0, 0, 102));
-        btnVolver.setText("Volver");
-        btnVolver.setBorderPainted(false);
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
-
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("Tipo");
         getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 242, -1, -1));
@@ -120,12 +108,6 @@ public class Licencias extends javax.swing.JFrame {
 
     File fichero;
     
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuPrincipal menu = new MenuPrincipal();
-        menu.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnVolverActionPerformed
-
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
          Licencia licencia = new Licencia();
         
@@ -163,7 +145,6 @@ public class Licencias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnVolver;
     private javax.swing.JFileChooser chooserFoto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
