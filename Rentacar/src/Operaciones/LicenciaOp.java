@@ -27,7 +27,7 @@ public class LicenciaOp {
         Conexion cc = new Conexion();
         Connection cn = cc.getConexion();
         PreparedStatement pst = null;
-        String sql = "INSERT INTO esquema.licencia(cedula,fechaEmision,tipo,fechaExpiracion,fotoLicencia) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO esquema.licencia(cedula,fechaEmision,tipo,fechaExpiracion) VALUES(?,?,?,?)";
         try {
             if (cn != null) {
                 pst = cn.prepareStatement(sql);
@@ -36,11 +36,7 @@ public class LicenciaOp {
                 pst.setString(3, licencia.getTipo());
                 pst.setDate(4, (Date) licencia.getFechaExpiracion());
                 
-                FileInputStream fis = new FileInputStream(file);
-                
-                pst.setBinaryStream(5, fis, (int) file.length());
-                
-                pst.executeUpdate();
+                pst.execute();
              
                 if (cn != null) {
                     cn.close();

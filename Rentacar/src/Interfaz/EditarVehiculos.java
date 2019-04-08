@@ -15,6 +15,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import Interfaz.MenuPrincipal;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -271,8 +275,14 @@ if (JFileChooser.APPROVE_OPTION == resultado){
                 vehiculo.setEstilo(txtEstilo.getText());
                 vehiculo.setEstado(txtEstado.getText());
                 vehiculo.setIdServicio(Integer.parseInt(txtServicio.getText()));
-                VehiculoOp.actualizarVehiculo(vehiculo, fichero);
-        
+        try {
+            VehiculoOp.actualizarVehiculo(vehiculo, fichero);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditarVehiculos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(EditarVehiculos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
         
     }//GEN-LAST:event_btnActualizarActionPerformed
 
