@@ -35,7 +35,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnEditarVehiculo = new javax.swing.JButton();
-        btnFiltrar = new javax.swing.JButton();
         reservar = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
@@ -114,17 +113,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btnEditarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
 
-        btnFiltrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnFiltrar.setForeground(new java.awt.Color(0, 0, 102));
-        btnFiltrar.setText("Filtrar Vehiculos");
-        btnFiltrar.setBorderPainted(false);
-        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFiltrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
-
         reservar.setText("Reservar");
         reservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,11 +172,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnEditarVehiculoActionPerformed
 
-    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
-        Filtrar filtrar = new Filtrar();
-        filtrar.setVisible(true);
-    }//GEN-LAST:event_btnFiltrarActionPerformed
-
     private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
         // TODO add your handling code here:
         Reserva reserva = new Reserva();
@@ -204,7 +187,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditarVehiculo;
-    private javax.swing.JButton btnFiltrar;
     private javax.swing.JButton btnRegVehiculo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblFondo;
