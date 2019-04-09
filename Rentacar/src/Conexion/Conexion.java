@@ -186,7 +186,7 @@ public class Conexion {
     }
     
     
-     public static boolean FechaVehiculo (Date fechaInicio, Date fechaFin, String placa){
+     public static boolean vehiculoReservado (Date fechaInicio, Date fechaFin, String placa){
          Connection conexion = getConexion();
         
         boolean resultado = false;

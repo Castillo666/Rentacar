@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -377,8 +379,27 @@ public class Filtrar extends javax.swing.JFrame {
 
     private void ReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarActionPerformed
         // TODO add your handling code here:
-        placatxt.getText().toString();
-        if (wifiIlimitado.isSelected());
+        String placa = placatxt.getText().toString();
+        //if (wifiIlimitado.isSelected());
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date parsed = null;
+        try {
+            parsed = format.parse(fechaInicio.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(ServMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        java.sql.Date fechaI = new java.sql.Date(parsed.getTime());
+        
+        java.util.Date parsed2 = null;
+        try {
+            parsed2 = format.parse(fechaFin.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(ServMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        java.sql.Date fechaFin = new java.sql.Date(parsed2.getTime());
+        
+        Conexion.vehiculoReservado(fechaI, fechaFin, placa);
     }//GEN-LAST:event_ReservarActionPerformed
 
     private void seleccionarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarVehiculoActionPerformed
