@@ -8,7 +8,8 @@ public class Reserva {
 	Date fechaFinal;
 	Date fechaRegistro;
 	int idOperador;
-
+        int precioTotal;
+;
     public void setIdReserva(int idReserva) {
         this.idReserva = idReserva;
     }

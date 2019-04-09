@@ -73,13 +73,13 @@ public class Filtrar extends javax.swing.JFrame {
         fechaFin = new javax.swing.JTextField();
         Reservar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        placa = new javax.swing.JTextField();
+        placatxt = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        wifiIlimitado = new javax.swing.JCheckBox();
         jLabel14 = new javax.swing.JLabel();
         seleccionarVehiculo = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
@@ -202,7 +202,7 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Servicios Extras");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,10 +241,12 @@ public class Filtrar extends javax.swing.JFrame {
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
-        getContentPane().add(placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 630, 80, -1));
+
+        placatxt.setEditable(false);
+        getContentPane().add(placatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 630, 80, -1));
 
         jCheckBox1.setText("Cobertura por daños a terceros");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, -1, -1));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, -1, -1));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Placa Vehiculo Selecionado:");
@@ -254,18 +256,18 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
         jCheckBox3.setText("Asiento para niño");
-        getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
+        getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
 
         jCheckBox4.setText("Asistencia en carretera");
-        getContentPane().add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, -1, -1));
+        getContentPane().add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
 
-        jCheckBox5.setText("WiFi ilimitado");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        wifiIlimitado.setText("WiFi ilimitado");
+        wifiIlimitado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                wifiIlimitadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
+        getContentPane().add(wifiIlimitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -273,6 +275,11 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         seleccionarVehiculo.setText("Seleccionar vehiculo");
+        seleccionarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seleccionarVehiculoActionPerformed(evt);
+            }
+        });
         getContentPane().add(seleccionarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
@@ -364,13 +371,23 @@ public class Filtrar extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void wifiIlimitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wifiIlimitadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_wifiIlimitadoActionPerformed
 
     private void ReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarActionPerformed
         // TODO add your handling code here:
+        placatxt.getText().toString();
+        if (wifiIlimitado.isSelected());
     }//GEN-LAST:event_ReservarActionPerformed
+
+    private void seleccionarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarVehiculoActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = Filtrados.getSelectedRow();
+        String placa = Filtrados.getModel().getValueAt(selectedRow,0).toString();
+        placatxt.setText(placa);
+        
+    }//GEN-LAST:event_seleccionarVehiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,7 +409,6 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -412,9 +428,10 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JTextField numPasajeros;
-    private javax.swing.JTextField placa;
+    private javax.swing.JTextField placatxt;
     private javax.swing.JButton seleccionarVehiculo;
     private javax.swing.JTextField txtDesde;
     private javax.swing.JTextField txtHasta;
+    private javax.swing.JCheckBox wifiIlimitado;
     // End of variables declaration//GEN-END:variables
 }
