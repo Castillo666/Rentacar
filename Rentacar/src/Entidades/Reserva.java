@@ -8,15 +8,14 @@ public class Reserva {
 	Date fechaFinal;
 	Date fechaRegistro;
 	int idOperador;
-        int idVehiculo;
+        String idVehiculo;
         int idCliente;
-        int precioTotal;
+        double precioTotal;
 
     public Reserva() {
     }
-        
 
-    public Reserva(int idReserva, Date fechaInicio, Date fechaFinal, Date fechaRegistro, int idOperador, int idVehiculo, int idCliente) {
+    public Reserva(int idReserva, Date fechaInicio, Date fechaFinal, Date fechaRegistro, int idOperador, String idVehiculo, int idCliente, double precioTotal) {
         this.idReserva = idReserva;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
@@ -24,23 +23,26 @@ public class Reserva {
         this.idOperador = idOperador;
         this.idVehiculo = idVehiculo;
         this.idCliente = idCliente;
+        this.precioTotal = precioTotal;
     }
+        
 
-    public int getPrecioTotal() {
+
+    public double getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(int precioTotal) {
+    public void setPrecioTotal(double precioTotal) {
         this.precioTotal = precioTotal;
     }
     
     
 
-    public int getIdVehiculo() {
+    public String getIdVehiculo() {
         return idVehiculo;
     }
 
-    public void setIdVehiculo(int idVehiculo) {
+    public void setIdVehiculo(String idVehiculo) {
         this.idVehiculo = idVehiculo;
     }
 

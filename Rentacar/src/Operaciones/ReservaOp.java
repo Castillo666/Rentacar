@@ -31,9 +31,9 @@ public class ReservaOp {
                 pst.setDate(3, (Date) reserva.getFechaFinal() );
                 pst.setDate(4,(Date) reserva.getFechaRegistro() );
                 pst.setInt(5, reserva.getIdOperador());
-                pst.setInt(6, reserva.getIdVehiculo());
+                pst.setString(6, reserva.getIdVehiculo());
                 pst.setInt(7, reserva.getIdCliente());
-                pst.setInt(8, reserva.getPrecioTotal());
+                pst.setDouble(8, reserva.getPrecioTotal());
                 pst.execute();
              
                 if (cn != null) {
