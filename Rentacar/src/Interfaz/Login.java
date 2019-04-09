@@ -95,23 +95,25 @@ public class Login extends javax.swing.JFrame {
        MenuPrincipal menu = new MenuPrincipal();
        menu.setVisible(true);
        this.setVisible(false);
-       String usuario, password;
-        
-        usuario = txtCorreo.getText();
-        password = txtPassword.getText();
        
        Conexion.getConexion();
         Conexion con = new Conexion();
        
-        /*try {
+       /* 
+        if (!txtCorreo.getText().isEmpty() & !txtPassword.getText().isEmpty()) {
+         try {
             if (con.login(txtCorreo.getText() , txtPassword.getText()) == 1) {
                 MenuPrincipal menu = new MenuPrincipal();
                 menu.setVisible(true);
                 this.setVisible(false);
             }} catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
+        }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor llene los espacios");
+        }
+       */
         
         
     }//GEN-LAST:event_btnIniciarSesionActionPerformed

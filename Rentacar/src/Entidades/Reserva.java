@@ -8,8 +8,49 @@ public class Reserva {
 	Date fechaFinal;
 	Date fechaRegistro;
 	int idOperador;
+        int idVehiculo;
+        int idCliente;
         int precioTotal;
-;
+
+    public Reserva() {
+    }
+        
+
+    public Reserva(int idReserva, Date fechaInicio, Date fechaFinal, Date fechaRegistro, int idOperador, int idVehiculo, int idCliente) {
+        this.idReserva = idReserva;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.fechaRegistro = fechaRegistro;
+        this.idOperador = idOperador;
+        this.idVehiculo = idVehiculo;
+        this.idCliente = idCliente;
+    }
+
+    public int getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(int precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+    
+    
+
+    public int getIdVehiculo() {
+        return idVehiculo;
+    }
+
+    public void setIdVehiculo(int idVehiculo) {
+        this.idVehiculo = idVehiculo;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
     public void setIdReserva(int idReserva) {
         this.idReserva = idReserva;
     }

@@ -5,37 +5,35 @@
  */
 package Operaciones;
 
+
 import Conexion.Conexion;
-import Entidades.Licencia;
-import java.io.File;
-import java.io.FileInputStream;
+import Entidades.Reserva;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 /**
  *
  * @author marip
  */
-public class LicenciaOp {
-    
-    
-    
-     public static String registrarLicencia(Licencia licencia) {
-        String result = null, last = null;
+public class ReservaOp {
+     public static String registrarReserva(Reserva reserva) {
+    String result = null, last = null;
         Conexion cc = new Conexion();
         Connection cn = cc.getConexion();
         PreparedStatement pst = null;
-        String sql = "INSERT INTO esquema.licencia(cedula,fechaEmision,tipo,fechaExpiracion) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO esquema.reserva VALUES(?,?,?,?,?,?,?,?)";
         try {
             if (cn != null) {
                 pst = cn.prepareStatement(sql);
-                pst.setInt(1, licencia.getCedula());
-                pst.setDate(2, (Date) licencia.getFechaEmision());
-                pst.setString(3, licencia.getTipo());
-                pst.setDate(4, (Date) licencia.getFechaExpiracion());
-                
+                pst.setInt(1, reserva.getIdReserva());
+                pst.setDate(2,(Date) reserva.getFechaInicio());
+                pst.setDate(3, (Date) reserva.getFechaFinal() );
+                pst.setDate(4,(Date) reserva.getFechaRegistro() );
+                pst.setInt(5, reserva.getIdOperador());
+                pst.setInt(6, reserva.getIdVehiculo());
+                pst.setInt(7, reserva.getIdCliente());
+                pst.setInt(8, reserva.getPrecioTotal());
                 pst.execute();
              
                 if (cn != null) {
@@ -48,7 +46,5 @@ public class LicenciaOp {
             }
         return result;
     }
-     
-     
     
 }

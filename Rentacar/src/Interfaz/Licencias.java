@@ -119,10 +119,10 @@ public class Licencias extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    File fichero;
     
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-         Licencia licencia = new Licencia();
+         if (!txtCedula.getText().isEmpty() & !txtTipo.getText().isEmpty()) {
+            Licencia licencia = new Licencia();
         
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
@@ -148,12 +148,17 @@ public class Licencias extends javax.swing.JFrame {
         licencia.setTipo(txtTipo.getText());
         licencia.setFechaExpiracion(fechaExp);
         
-       LicenciaOp.registrarLicencia(licencia,fichero);
+       LicenciaOp.registrarLicencia(licencia);
        JOptionPane.showMessageDialog(null, "La licencia se insertó correctamente");
        
         Clientes cliente = new Clientes();
         cliente.setVisible(true);
         this.setVisible(false);
+        } else {
+             JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos");
+         }
+
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed

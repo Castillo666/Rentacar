@@ -66,7 +66,8 @@ public class RolServicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        String contraseña = String.valueOf(Password.generatePswd());
+    if (!txtCorreo.getText().isEmpty()) {
+            String contraseña = String.valueOf(Password.generatePswd());
         enviarCorreo.send(txtCorreo.getText(),"Datos de Usuario", "Usuario: "+txtCorreo.getText()
                 +"\n\n"+"Contraseña: "+contraseña,"rentacarkpr@gmail.com", "prograbases1");
         
@@ -78,6 +79,9 @@ public class RolServicio extends javax.swing.JFrame {
         this.setVisible(false);
         Login login = new Login();
         login.setVisible(true);
+       } else {
+           JOptionPane.showMessageDialog(null, "Por favor llene el espacio");
+       }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**

@@ -124,7 +124,8 @@ public class Empresas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        Empresa emp = new Empresa();
+        if (!txtCedula.getText().isEmpty() & !txtRazon.getText().isEmpty() & !txtTelefono.getText().isEmpty() & !txtProvincia.getText().isEmpty() & !txtCanton.getText().isEmpty() & !txtDistrito.getText().isEmpty() & !txtSeñas.getText().isEmpty()) {
+           Empresa emp = new Empresa();
           
         emp.setCedulaJuridica(Integer.parseInt(txtCedula.getText()));
         emp.setRazonSocial(txtRazon.getText());
@@ -136,7 +137,9 @@ public class Empresas extends javax.swing.JFrame {
         
         EmpresaOp.registrarEmpresa(emp);
         JOptionPane.showMessageDialog(null, "La empresa se insertó correctamente");
-        
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos");
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed

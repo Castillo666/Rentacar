@@ -163,7 +163,8 @@ public class ServMantenimiento extends javax.swing.JFrame {
 
     private void btbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbRegistrarActionPerformed
       
-        Servicio servicio = new Servicio();
+        if (!txtDetalle.getText().isEmpty() & !txtIdEmpresa.getText().isEmpty() & !txtIdServicio.getText().isEmpty() & txtMonto.getText().isEmpty() & !txtTipoServicio.getText().isEmpty()){
+      Servicio servicio = new Servicio();
         
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
@@ -194,6 +195,12 @@ public class ServMantenimiento extends javax.swing.JFrame {
         
         ServMantenimientoOp.registrarServMantenimiento(servicio);
         JOptionPane.showMessageDialog(null, "El servicio se insertó correctamente");
+      
+      } else {
+          JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos");
+      }
+
+
     }//GEN-LAST:event_btbRegistrarActionPerformed
 
     private void txtFechaFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinActionPerformed
