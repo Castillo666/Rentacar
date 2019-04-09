@@ -6,6 +6,7 @@
 package Interfaz;
 import Entidades.Empresa;
 import Operaciones.EmpresaOp;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -134,6 +135,7 @@ public class Empresas extends javax.swing.JFrame {
         emp.setSeñas(txtSeñas.getText());
         
         EmpresaOp.registrarEmpresa(emp);
+        JOptionPane.showMessageDialog(null, "La empresa se insertó correctamente");
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

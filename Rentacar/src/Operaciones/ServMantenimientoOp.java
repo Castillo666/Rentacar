@@ -35,7 +35,7 @@ public class ServMantenimientoOp {
                 pst.setString(5, servicio.getDetalle());
                 pst.setString(6, servicio.getTipoServicio());
                 pst.setInt(7, servicio.getIdEmpresa());
-                pst.executeUpdate();
+                pst.execute();
              
                 if (cn != null) {
                     cn.close();

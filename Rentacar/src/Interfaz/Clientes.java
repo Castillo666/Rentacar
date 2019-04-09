@@ -222,6 +222,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
                         cliente.setTelefono(txtTelefono.getText());
         
                         ClientesOp.registrarCliente(cliente, fichero);
+                        JOptionPane.showMessageDialog(null, "El cliente se insertó correctamente");
                         }
             
             

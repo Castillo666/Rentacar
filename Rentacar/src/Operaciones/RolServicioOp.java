@@ -19,8 +19,8 @@ public class RolServicioOp {
                 pst.setString(1, rolServicio.getUsuario());
                 pst.setString(2, rolServicio.getContraseña());
                 
-                pst.executeUpdate();
-             
+                pst.execute();
+          
                 if (cn != null) {
                     cn.close();
                     pst.close();

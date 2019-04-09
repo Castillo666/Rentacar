@@ -10,6 +10,7 @@ import Entidades.RoldeServicio;
 import Operaciones.RolServicioOp;
 import Servicios.Password;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,6 +74,7 @@ public class RolServicio extends javax.swing.JFrame {
         rol.setUsuario(txtCorreo.getText());
         rol.setContraseña(contraseña);
         RolServicioOp.registrarRoldeServicio(rol);
+        JOptionPane.showMessageDialog(null, "El nuevo rol se insertó correctamente");
         this.setVisible(false);
         Login login = new Login();
         login.setVisible(true);

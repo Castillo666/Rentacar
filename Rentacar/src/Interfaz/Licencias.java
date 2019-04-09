@@ -53,9 +53,11 @@ public class Licencias extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JButton();
         lblTipo = new javax.swing.JLabel();
         txtTipo = new javax.swing.JTextField();
+        btnVolver = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(chooserFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 0, 10));
 
@@ -99,6 +101,17 @@ public class Licencias extends javax.swing.JFrame {
         getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 242, -1, -1));
         getContentPane().add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 239, 119, -1));
 
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setForeground(new java.awt.Color(0, 0, 102));
+        btnVolver.setText("Volver");
+        btnVolver.setBorderPainted(false);
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
+
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 390));
@@ -136,7 +149,18 @@ public class Licencias extends javax.swing.JFrame {
         licencia.setFechaExpiracion(fechaExp);
         
        LicenciaOp.registrarLicencia(licencia,fichero);
+       JOptionPane.showMessageDialog(null, "La licencia se insertó correctamente");
+       
+        Clientes cliente = new Clientes();
+        cliente.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +169,7 @@ public class Licencias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JFileChooser chooserFoto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -33,7 +33,7 @@ public class EmpresaOp {
                 pst.setInt(5, empresa.getIdCanton());
                 pst.setInt(6, empresa.getIdDistrito());
                 pst.setString(7, empresa.getSeñas());
-                pst.executeUpdate();
+                pst.execute();
              
                 if (cn != null) {
                     cn.close();

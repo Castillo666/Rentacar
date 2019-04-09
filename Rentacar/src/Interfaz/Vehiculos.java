@@ -271,6 +271,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
                 vehiculo.setEstado("Activo");
                 vehiculo.setIdServicio(Integer.parseInt(txtServicio.getText()));
                 VehiculoOp.registrarVehiculo(vehiculo, fichero);
+                JOptionPane.showMessageDialog(null, "El vehiculo se insertó correctamente");
          
             } else {
              

@@ -39,7 +39,7 @@ public class ClientesOp {
                 
                 pst.setBinaryStream(6, fis, (int) file.length());
                 
-                pst.executeUpdate();
+                pst.execute();
              
                 if (cn != null) {
                     cn.close();

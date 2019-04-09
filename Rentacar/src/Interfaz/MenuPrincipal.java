@@ -36,6 +36,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnEditarVehiculo = new javax.swing.JButton();
         reservar = new javax.swing.JButton();
+        btnRecorrido = new javax.swing.JButton();
+        btnDetalleReserva = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,7 +53,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 registrarEmpresaActionPerformed(evt);
             }
         });
-        getContentPane().add(registrarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        getContentPane().add(registrarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         registrarCliente.setBackground(new java.awt.Color(255, 255, 255));
         registrarCliente.setForeground(new java.awt.Color(0, 0, 102));
@@ -62,7 +64,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 registrarClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(registrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        getContentPane().add(registrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 160, -1));
 
         registrarServMantenimiento.setBackground(new java.awt.Color(255, 255, 255));
         registrarServMantenimiento.setForeground(new java.awt.Color(0, 0, 102));
@@ -73,7 +75,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 registrarServMantenimientoActionPerformed(evt);
             }
         });
-        getContentPane().add(registrarServMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+        getContentPane().add(registrarServMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
 
         btnRegVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         btnRegVehiculo.setForeground(new java.awt.Color(0, 0, 102));
@@ -84,12 +86,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnRegVehiculoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        getContentPane().add(btnRegVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 160, -1));
 
         lblTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("Menú Principal");
-        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 190, 40));
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 190, 40));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
@@ -100,7 +102,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
 
         btnEditarVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarVehiculo.setForeground(new java.awt.Color(0, 0, 102));
@@ -111,19 +113,34 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnEditarVehiculoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
+        getContentPane().add(btnEditarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 170, -1));
 
+        reservar.setBackground(new java.awt.Color(255, 255, 255));
+        reservar.setForeground(new java.awt.Color(0, 0, 102));
         reservar.setText("Reservar");
+        reservar.setBorderPainted(false);
         reservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reservarActionPerformed(evt);
             }
         });
-        getContentPane().add(reservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
+        getContentPane().add(reservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 160, -1));
+
+        btnRecorrido.setBackground(new java.awt.Color(255, 255, 255));
+        btnRecorrido.setForeground(new java.awt.Color(0, 0, 102));
+        btnRecorrido.setText("Recorrido Vehicuo");
+        btnRecorrido.setBorderPainted(false);
+        getContentPane().add(btnRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 170, -1));
+
+        btnDetalleReserva.setBackground(new java.awt.Color(255, 255, 255));
+        btnDetalleReserva.setForeground(new java.awt.Color(0, 0, 102));
+        btnDetalleReserva.setText("Detalle Reserva");
+        btnDetalleReserva.setBorderPainted(false);
+        getContentPane().add(btnDetalleReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 430));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -135,10 +152,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_registrarEmpresaActionPerformed
 
     private void registrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarClienteActionPerformed
-        Clientes cliente = new Clientes();
-        cliente.setVisible(true);
-        this.setVisible(false);
-        
+   
         Licencias licencia = new Licencias();
         licencia.setVisible(true);
         this.setVisible(false);
@@ -186,7 +200,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDetalleReserva;
     private javax.swing.JButton btnEditarVehiculo;
+    private javax.swing.JButton btnRecorrido;
     private javax.swing.JButton btnRegVehiculo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblFondo;

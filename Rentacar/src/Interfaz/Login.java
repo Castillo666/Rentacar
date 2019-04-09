@@ -67,6 +67,11 @@ public class Login extends javax.swing.JFrame {
         btnRegistrarse.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setText("Registrarse");
         btnRegistrarse.setBorderPainted(false);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 278, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,6 +115,12 @@ public class Login extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+        RolServicio rol = new RolServicio();
+        rol.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments

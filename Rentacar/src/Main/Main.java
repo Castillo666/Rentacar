@@ -8,8 +8,11 @@ package Main;
 import Apis.enviarCorreo;
 import Interfaz.Login;
 import Servicios.Password;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author marip
@@ -19,7 +22,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         Conexion.Conexion.getConexion();
         System.out.println("La conexión se realizó correctamente");
         

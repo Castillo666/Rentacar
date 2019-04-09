@@ -14,6 +14,7 @@ import java.util.Date.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Interfaz.MenuPrincipal;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -192,6 +193,7 @@ public class ServMantenimiento extends javax.swing.JFrame {
         servicio.setTipoServicio(txtTipoServicio.getText());
         
         ServMantenimientoOp.registrarServMantenimiento(servicio);
+        JOptionPane.showMessageDialog(null, "El servicio se insertó correctamente");
     }//GEN-LAST:event_btbRegistrarActionPerformed
 
     private void txtFechaFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinActionPerformed

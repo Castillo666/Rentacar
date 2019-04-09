@@ -277,6 +277,7 @@ if (JFileChooser.APPROVE_OPTION == resultado){
                 vehiculo.setIdServicio(Integer.parseInt(txtServicio.getText()));
         try {
             VehiculoOp.actualizarVehiculo(vehiculo, fichero);
+            JOptionPane.showMessageDialog(null, "El vehiculo se actulizó correctamente");
         } catch (SQLException ex) {
             Logger.getLogger(EditarVehiculos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {

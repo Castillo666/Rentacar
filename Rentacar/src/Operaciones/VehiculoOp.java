@@ -56,7 +56,7 @@ public class VehiculoOp {
                 
                 pst.setBinaryStream(17, fis, (int) file.length());
                 
-                pst.executeUpdate();
+                pst.execute();
              
                 if (cn != null) {
                     cn.close();

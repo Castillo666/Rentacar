@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -185,6 +186,30 @@ public class Conexion {
     }
     
     
+     public static boolean FechaVehiculo (Date fechaInicio, Date fechaFin, String placa){
+         Connection conexion = getConexion();
+        
+        boolean resultado = false;
+        try {
+            Statement ejecutor = conexion.createStatement();
+        ResultSet rs = ejecutor.executeQuery("Select fechaInicio, fechaFin, idVehiculo from esquema.reserva  Where idVehiculo = '"+placa+"' AND ('"+fechaInicio+"' between fechaInicio and fechaFin) AND ('"+fechaFin+"' between fechaInicio and fechaFin)");
+        
+            if (rs.next()){
+                JOptionPane.showMessageDialog(null, "Vehiculo reservado");
+                resultado = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Vehiculo Disponible");
+                resultado = false;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al conectar " +e.getMessage(),e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        
+        }
+        return resultado;
+     
+     }
+     
+     
     
     
 }
