@@ -373,13 +373,12 @@
           <Color blue="66" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
-            <StringItem index="0" value="sin filtro"/>
-            <StringItem index="1" value="Aeropuerto Juan Santamaria"/>
-            <StringItem index="2" value="Santa Ana"/>
-            <StringItem index="3" value="Paseo Colon"/>
-            <StringItem index="4" value="Paseo de las flores "/>
-            <StringItem index="5" value="Curridabat"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Aeropuerto Juan Santamaria"/>
+            <StringItem index="1" value="Santa Ana"/>
+            <StringItem index="2" value="Paseo Colon"/>
+            <StringItem index="3" value="Paseo de las flores "/>
+            <StringItem index="4" value="Curridabat"/>
           </StringArray>
         </Property>
       </Properties>
@@ -420,7 +419,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="fechaInicio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="YY/MM/DD"/>
+        <Property name="text" type="java.lang.String" value="DD/MM/YY"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -430,7 +429,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="fechaFin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="YY/MM/DD"/>
+        <Property name="text" type="java.lang.String" value="DD/MM/YY"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -473,7 +472,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="seguro">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cobertura por da&#xf1;os a terceros"/>
       </Properties>
@@ -496,7 +495,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+    <Component class="javax.swing.JCheckBox" name="gps">
       <Properties>
         <Property name="text" type="java.lang.String" value="GPS"/>
       </Properties>
@@ -506,7 +505,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+    <Component class="javax.swing.JCheckBox" name="asiento">
       <Properties>
         <Property name="text" type="java.lang.String" value="Asiento para ni&#xf1;o"/>
       </Properties>
@@ -516,7 +515,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+    <Component class="javax.swing.JCheckBox" name="asistencia">
       <Properties>
         <Property name="text" type="java.lang.String" value="Asistencia en carretera"/>
       </Properties>

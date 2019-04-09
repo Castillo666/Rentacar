@@ -49,6 +49,27 @@ public class Reserva {
     public void setIdOperador(int idOperador) {
         this.idOperador = idOperador;
     }
-        
+  
+    public static double calcularPrecio(int precioCarro, int cantDias, boolean wifi, boolean asistencia, boolean gps, boolean asiento, boolean seguro){
+    
+        double total = precioCarro * cantDias;
+        if (wifi == true){
+            total = total + (cantDias * 15);//$15 diarios
+        }
+        if (asistencia == true){
+            total = total + (cantDias * 3.99);//$3.99 diarios
+        }
+        if (gps == true){
+            total = total + (cantDias * 13.99);//$13.99 diarios
+        }
+        if (asiento == true){
+            total = total + (cantDias * 6.99);//$6.99 diarios
+        }
+        if (seguro == true){
+            total = total + (cantDias * 12.99);//$12.99 diarios
+        }
+        return total;
+    
+    }
      
 }

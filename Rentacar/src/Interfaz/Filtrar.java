@@ -17,12 +17,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import static java.time.temporal.ChronoUnit.DAYS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Entidades.Reserva;
 
 /**
  *
@@ -76,11 +78,11 @@ public class Filtrar extends javax.swing.JFrame {
         Reservar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         placatxt = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        seguro = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        gps = new javax.swing.JCheckBox();
+        asiento = new javax.swing.JCheckBox();
+        asistencia = new javax.swing.JCheckBox();
         wifiIlimitado = new javax.swing.JCheckBox();
         jLabel14 = new javax.swing.JLabel();
         seleccionarVehiculo = new javax.swing.JButton();
@@ -216,7 +218,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         SedeDejar.setForeground(new java.awt.Color(0, 0, 102));
-        SedeDejar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        SedeDejar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
         getContentPane().add(SedeDejar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 140, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,10 +229,10 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel11.setText("Dejar en: ");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
-        fechaInicio.setText("YY/MM/DD");
+        fechaInicio.setText("DD/MM/YY");
         getContentPane().add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 80, -1));
 
-        fechaFin.setText("YY/MM/DD");
+        fechaFin.setText("DD/MM/YY");
         getContentPane().add(fechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 80, -1));
 
         Reservar.setText("Reservar");
@@ -247,21 +249,21 @@ public class Filtrar extends javax.swing.JFrame {
         placatxt.setEditable(false);
         getContentPane().add(placatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 630, 80, -1));
 
-        jCheckBox1.setText("Cobertura por daños a terceros");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, -1, -1));
+        seguro.setText("Cobertura por daños a terceros");
+        getContentPane().add(seguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, -1, -1));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Placa Vehiculo Selecionado:");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, -1, -1));
 
-        jCheckBox2.setText("GPS");
-        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
+        gps.setText("GPS");
+        getContentPane().add(gps, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
-        jCheckBox3.setText("Asiento para niño");
-        getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
+        asiento.setText("Asiento para niño");
+        getContentPane().add(asiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
 
-        jCheckBox4.setText("Asistencia en carretera");
-        getContentPane().add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
+        asistencia.setText("Asistencia en carretera");
+        getContentPane().add(asistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
 
         wifiIlimitado.setText("WiFi ilimitado");
         wifiIlimitado.addActionListener(new java.awt.event.ActionListener() {
@@ -380,7 +382,6 @@ public class Filtrar extends javax.swing.JFrame {
     private void ReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarActionPerformed
         // TODO add your handling code here:
         String placa = placatxt.getText().toString();
-        //if (wifiIlimitado.isSelected());
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
         try {
@@ -398,8 +399,43 @@ public class Filtrar extends javax.swing.JFrame {
         }
         
         java.sql.Date fechaFin = new java.sql.Date(parsed2.getTime());
-        
-        Conexion.vehiculoReservado(fechaI, fechaFin, placa);
+         
+        if (fechaI.compareTo(fechaFin) > 0) {
+            JOptionPane.showMessageDialog(null, "No puede continuar por que la fecha de inicio es mayor a la fecha de finalización");
+        } else{
+             if (Conexion.vehiculoReservado(fechaI, fechaFin, placa) == true){
+                 JOptionPane.showMessageDialog(null, "Seleccione otro vehiculo");
+             }else{
+                 try {
+                     long daysBetween = DAYS.between(fechaI.toLocalDate(), fechaFin.toLocalDate());
+                     int daysInt = Math.toIntExact(daysBetween + 1);
+                     
+                     Conexion cn = new Conexion();
+                     ResultSet rs = cn.vehiculo(placa);
+                     rs.next();
+                     int precio = rs.getInt("costoDia");
+                     
+                     boolean wifi = wifiIlimitado.isSelected();
+                     boolean asist = asistencia.isSelected();
+                     boolean GPS = gps.isSelected();
+                     boolean asien = asiento.isSelected();
+                     boolean segur = seguro.isSelected();
+                     
+                     
+                     System.out.println(Reserva.calcularPrecio(precio,daysInt,wifi , asist, GPS, asien, segur));
+                     
+                     
+                 } catch (SQLException ex) {
+                     Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                     
+
+                 
+                 
+                 
+             }
+            
+        }
     }//GEN-LAST:event_ReservarActionPerformed
 
     private void seleccionarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarVehiculoActionPerformed
@@ -421,15 +457,14 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> SedeCB;
     private javax.swing.JComboBox<String> SedeDejar;
     private javax.swing.JComboBox<String> TipoCB;
+    private javax.swing.JCheckBox asiento;
+    private javax.swing.JCheckBox asistencia;
     private javax.swing.JTextField fechaFin;
     private javax.swing.JTextField fechaInicio;
     private javax.swing.JToggleButton filtrar;
+    private javax.swing.JCheckBox gps;
     private javax.swing.JLabel imagen;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -450,6 +485,7 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JLabel lblTipo;
     private javax.swing.JTextField numPasajeros;
     private javax.swing.JTextField placatxt;
+    private javax.swing.JCheckBox seguro;
     private javax.swing.JButton seleccionarVehiculo;
     private javax.swing.JTextField txtDesde;
     private javax.swing.JTextField txtHasta;
