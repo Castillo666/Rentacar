@@ -244,9 +244,9 @@ public class Conexion {
                fechaInicio = date1;
            }else{
                 if (existeFiltro == true){ 
-                    Where = Where + " and (fechaInicio = select"+ fechaInicio+")";
+                    Where = Where + " and (fechaInicio = '"+ fechaInicio+"' )";
                 }else{
-                    Where = " WHERE (fechaInicio = "+ fechaInicio+")";
+                    Where = " WHERE (fechaInicio = '"+ fechaInicio+"' )";
                     existeFiltro = true;}
            }
            if (existeFiltro == true){
@@ -262,6 +262,25 @@ public class Conexion {
         }
         return rs;
     }
+     public static boolean existeOperador(int idO){
+      Connection conexion = getConexion();
+      boolean resultado = false;
+        try {
+           Statement ejecutor = conexion.createStatement();
+           ResultSet rs = ejecutor.executeQuery("Select idOperador from esquema.operador  Where idOperador =" + idO + "'");
+            if (rs.next()){
+                resultado = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Operador no registrado");
+                resultado = false;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al conectar " +e.getMessage(),e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        
+        }
+        return resultado;
+      
+     }
      
      
     
