@@ -193,7 +193,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
         // TODO add your handling code here:
-        Reserva reserva = new Reserva();
+        Reservas reserva = new Reservas();
         reserva.setVisible(true);
         this.setVisible(false);
         

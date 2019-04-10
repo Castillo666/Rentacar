@@ -158,6 +158,7 @@ public class Licencias extends javax.swing.JFrame {
         Clientes cliente = new Clientes();
         cliente.setVisible(true);
         this.setVisible(false);
+        }
         } else {
              JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos");
          }

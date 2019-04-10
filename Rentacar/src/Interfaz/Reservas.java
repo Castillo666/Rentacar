@@ -27,13 +27,13 @@ import Main.Main;
  *
  * @author Raquel Rojas
  */
-public class Reserva extends javax.swing.JFrame {
-
+public class Reservas extends javax.swing.JFrame {
+public static int  idClienteR;
   
     /**
      * Creates new form Reserva
      */
-    public Reserva() {
+    public Reservas() {
         initComponents();
         Connection conexion = getConexion();
     }
@@ -135,6 +135,7 @@ public class Reserva extends javax.swing.JFrame {
 
     private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
 
+          if (!cedula.getText().isEmpty()) {
         try {                                        
             
             // TODO add your handling code here:
@@ -161,18 +162,22 @@ public class Reserva extends javax.swing.JFrame {
     
                 }else{JOptionPane.showMessageDialog(null, "El cliente no existe, por favor registrarlo");}
             } catch (SQLException ex) {
-                Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Reservas.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("1");
             } catch (IOException ex) {
-                Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Reservas.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Reservas.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-            
+          idClienteR = Integer.parseInt(cedula.getText());
+        } else  {
+            JOptionPane.showMessageDialog(null,"Por favor indique la cedula");
+        }
+   
         
     }//GEN-LAST:event_validarActionPerformed
 
@@ -191,7 +196,7 @@ public class Reserva extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "No puede continuar por que el cliente no existe, por favor registrarlo");}
         } catch (SQLException ex) {
-            Logger.getLogger(Reserva.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Reservas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_continuarActionPerformed
 

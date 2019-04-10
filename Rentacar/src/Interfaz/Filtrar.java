@@ -32,7 +32,10 @@ import Operaciones.ReservaOp;
  * @author Raquel Rojas
  */
 public class Filtrar extends javax.swing.JFrame {
-
+    
+     int idClienteR = Reservas.idClienteR;
+     public static int idReserva = 16;
+    
     /**
      * Creates new form Filtrar
      */
@@ -50,15 +53,14 @@ public class Filtrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblFondo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblTipo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TipoCB = new javax.swing.JComboBox<>();
-        SedeCB = new javax.swing.JComboBox<>();
+        TipoCB = new javax.swing.JComboBox<String>();
+        SedeCB = new javax.swing.JComboBox<String>();
         txtDesde = new javax.swing.JTextField();
         txtHasta = new javax.swing.JTextField();
         filtrar = new javax.swing.JToggleButton();
@@ -72,9 +74,7 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        SedeDejar = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         fechaInicio = new javax.swing.JTextField();
         fechaFin = new javax.swing.JTextField();
         Reservar = new javax.swing.JButton();
@@ -92,10 +92,7 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         lblIDOP = new javax.swing.JLabel();
         txtIdOp = new javax.swing.JTextField();
-
-        lblFondo.setBackground(new java.awt.Color(0, 0, 102));
-        lblFondo.setForeground(new java.awt.Color(255, 255, 255));
-        lblFondo.setOpaque(true);
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -116,7 +113,7 @@ public class Filtrar extends javax.swing.JFrame {
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Inicio");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("a");
@@ -127,7 +124,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
 
         TipoCB.setEditable(true);
-        TipoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "minivan" }));
+        TipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "minivan" }));
         TipoCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoCBActionPerformed(evt);
@@ -136,8 +133,8 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(TipoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 120, -1));
 
         SedeCB.setForeground(new java.awt.Color(0, 0, 102));
-        SedeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
-        getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 140, -1));
+        SedeCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, -1));
 
         txtDesde.setText("0");
         txtDesde.addActionListener(new java.awt.event.ActionListener() {
@@ -223,31 +220,23 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Recoger en:");
+        jLabel9.setText("Recoger y dejar en:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-
-        SedeDejar.setForeground(new java.awt.Color(0, 0, 102));
-        SedeDejar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
-        getContentPane().add(SedeDejar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Fin:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 40, 20));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 40, 20));
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Dejar en: ");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-
-        fechaInicio.setText("DD/MM/YY");
+        fechaInicio.setText("DD/MM/YYYY");
         fechaInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechaInicioActionPerformed(evt);
             }
         });
-        getContentPane().add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 80, -1));
+        getContentPane().add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 110, -1));
 
-        fechaFin.setText("DD/MM/YY");
-        getContentPane().add(fechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 80, -1));
+        fechaFin.setText("DD/MM/YYYY");
+        getContentPane().add(fechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 110, -1));
 
         Reservar.setText("Reservar");
         Reservar.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +288,8 @@ public class Filtrar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(seleccionarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 440, -1, -1));
+
+        txtFechaR.setText("DD/MM/YYYY");
         getContentPane().add(txtFechaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 100, -1));
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -309,6 +300,10 @@ public class Filtrar extends javax.swing.JFrame {
         lblIDOP.setText("Id Operador");
         getContentPane().add(lblIDOP, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 90, -1));
         getContentPane().add(txtIdOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, 100, -1));
+
+        jLabel16.setBackground(new java.awt.Color(0, 0, 102));
+        jLabel16.setOpaque(true);
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 780));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -400,6 +395,10 @@ public class Filtrar extends javax.swing.JFrame {
 
     private void ReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarActionPerformed
         // TODO add your handling code here:
+        if (!txtIdOp.getText().isEmpty() & !placatxt.getText().isEmpty() & SedeCB.getSelectedIndex() != 0) {
+        
+        String sede = SedeCB.getSelectedItem().toString();
+        
         String placa = placatxt.getText();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
@@ -452,16 +451,25 @@ public class Filtrar extends javax.swing.JFrame {
                     java.sql.Date fechaR = new java.sql.Date(parsed.getTime());
                      
                      Reserva reserva = new Reserva();
-                     reserva.setIdReserva(16);
-                     reserva.setFechaInicio(fechaI);
-                     reserva.setFechaFinal(fechaFin);
-                     reserva.setFechaRegistro(fechaR);
-                     reserva.setIdVehiculo(placa);
-                     reserva.setIdOperador(Integer.parseInt(txtIdOp.getText()));
-                     reserva.setPrecioTotal(precioTotal);
+                    
+                    int confirmacion = JOptionPane.showConfirmDialog(null, "Cedula cliente: " + idClienteR + "\n Vehiculo placa: " + placa + "\n fecha Inicio: " +
+                fechaI + "\n Fecha Fin: " + fechaFin + "\n Sede: " + sede + "\n Precio Total: " + precioTotal);
+                         if(confirmacion == JOptionPane.YES_OPTION)  {       
+                            reserva.setIdReserva(idReserva);
+                            reserva.setFechaInicio(fechaI);
+                            reserva.setFechaFinal(fechaFin);
+                            reserva.setFechaRegistro(fechaR);
+                            reserva.setIdVehiculo(placa);
+                            reserva.setIdOperador(Integer.parseInt(txtIdOp.getText()));
+                            reserva.setPrecioTotal(precioTotal);
+                            reserva.setIdCliente(idClienteR);
+                            reserva.setSede(sede);
                      
-                     ReservaOp.registrarReserva(reserva);
-                     
+                            ReservaOp.registrarReserva(reserva);
+                            idReserva ++;
+                         } else if (confirmacion == JOptionPane.NO_OPTION) {
+                            JOptionPane.showMessageDialog(null, "Has seleccionado NO."); }
+
                      
                  } catch (SQLException ex) {
                      Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
@@ -469,6 +477,10 @@ public class Filtrar extends javax.swing.JFrame {
              }
             
         }
+        }  else {
+        JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos");
+        }
+
     }//GEN-LAST:event_ReservarActionPerformed
 
     private void seleccionarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarVehiculoActionPerformed
@@ -492,7 +504,6 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JTable Filtrados;
     private javax.swing.JButton Reservar;
     private javax.swing.JComboBox<String> SedeCB;
-    private javax.swing.JComboBox<String> SedeDejar;
     private javax.swing.JComboBox<String> TipoCB;
     private javax.swing.JCheckBox asiento;
     private javax.swing.JCheckBox asistencia;
@@ -504,11 +515,11 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -519,7 +530,6 @@ public class Filtrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIDOP;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JTextField numPasajeros;

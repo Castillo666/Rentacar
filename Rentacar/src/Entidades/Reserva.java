@@ -11,11 +11,12 @@ public class Reserva {
         String idVehiculo;
         int idCliente;
         double precioTotal;
+        String sede;
 
     public Reserva() {
     }
 
-    public Reserva(int idReserva, Date fechaInicio, Date fechaFinal, Date fechaRegistro, int idOperador, String idVehiculo, int idCliente, double precioTotal) {
+    public Reserva(int idReserva, Date fechaInicio, Date fechaFinal, Date fechaRegistro, int idOperador, String idVehiculo, int idCliente, double precioTotal, String sede) {
         this.idReserva = idReserva;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
@@ -24,8 +25,16 @@ public class Reserva {
         this.idVehiculo = idVehiculo;
         this.idCliente = idCliente;
         this.precioTotal = precioTotal;
+        this.sede = sede;
     }
-        
+
+    public String getSede() {
+        return sede;
+    }
+
+    public void setSede(String sede) {
+        this.sede = sede;
+    }
 
 
     public double getPrecioTotal() {
