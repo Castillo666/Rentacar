@@ -22,7 +22,7 @@ public class ReservaOp {
         Conexion cc = new Conexion();
         Connection cn = cc.getConexion();
         PreparedStatement pst = null;
-        String sql = "INSERT INTO esquema.reserva VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO esquema.reserva VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             if (cn != null) {
                 pst = cn.prepareStatement(sql);
@@ -35,6 +35,8 @@ public class ReservaOp {
                 pst.setInt(7, reserva.getIdCliente());
                 pst.setDouble(8, reserva.getPrecioTotal());
                 pst.setString(9, reserva.getSede());
+                pst.setString(10, reserva.getPuntoInicial());
+                pst.setString(11, reserva.getPuntoFinal());
                 pst.execute();
              
                 if (cn != null) {

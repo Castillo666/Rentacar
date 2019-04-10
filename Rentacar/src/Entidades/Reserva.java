@@ -12,10 +12,29 @@ public class Reserva {
         int idCliente;
         double precioTotal;
         String sede;
+        String puntoInicial;
+        String puntoFinal;
 
     public Reserva() {
     }
 
+    public String getPuntoInicial() {
+        return puntoInicial;
+    }
+
+    public void setPuntoInicial(String puntoInicial) {
+        this.puntoInicial = puntoInicial;
+    }
+
+    public String getPuntoFinal() {
+        return puntoFinal;
+    }
+
+    public void setPuntoFinal(String puntoFinal) {
+        this.puntoFinal = puntoFinal;
+    }
+
+    
     public Reserva(int idReserva, Date fechaInicio, Date fechaFinal, Date fechaRegistro, int idOperador, String idVehiculo, int idCliente, double precioTotal, String sede) {
         this.idReserva = idReserva;
         this.fechaInicio = fechaInicio;

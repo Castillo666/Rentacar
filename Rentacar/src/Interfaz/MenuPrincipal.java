@@ -38,6 +38,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         reservar = new javax.swing.JButton();
         btnRecorrido = new javax.swing.JButton();
         btnDetalleReserva = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -143,6 +144,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btnDetalleReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
+        jButton2.setText("Mostar Recorrido");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
+
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 450));
@@ -206,6 +215,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         reserva.setVisible(true);
     }//GEN-LAST:event_btnDetalleReservaActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Recorrido rec = new Recorrido();
+        rec.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetalleReserva;
@@ -213,6 +228,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRecorrido;
     private javax.swing.JButton btnRegVehiculo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JButton registrarCliente;
