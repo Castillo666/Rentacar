@@ -136,6 +136,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnDetalleReserva.setForeground(new java.awt.Color(0, 0, 102));
         btnDetalleReserva.setText("Detalle Reserva");
         btnDetalleReserva.setBorderPainted(false);
+        btnDetalleReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetalleReservaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnDetalleReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
@@ -194,6 +199,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_reservarActionPerformed
+
+    private void btnDetalleReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleReservaActionPerformed
+        // TODO add your handling code here:
+        DetalleReserva reserva = new DetalleReserva();
+        reserva.setVisible(true);
+    }//GEN-LAST:event_btnDetalleReservaActionPerformed
 
     /**
      * @param args the command line arguments

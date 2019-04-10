@@ -141,6 +141,10 @@ public class Licencias extends javax.swing.JFrame {
         }
         
         java.sql.Date fechaExp = new java.sql.Date(parsed2.getTime());
+         
+        if (fechaE.compareTo(fechaExp) > 0) {
+            JOptionPane.showMessageDialog(null, "No puede continuar por que la fecha de expedición no puede ser mayor a la fecha de expiración");
+        } else{
         
         
         licencia.setCedula(Integer.parseInt(txtCedula.getText()));

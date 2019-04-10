@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -171,6 +172,8 @@ public class Conexion {
         return rs;
     }
     
+    
+    
      public static ResultSet obtenerCliente(String cedula){
         Connection cn;
         PreparedStatement pst;
@@ -208,6 +211,57 @@ public class Conexion {
         return resultado;
      
      }
+     
+     public ResultSet reservaFiltrada(String sede,String placa, int idOperador, Date fechaInicio){
+        PreparedStatement pst;
+        ResultSet rs = null;
+        boolean existeFiltro = false;
+        try{
+           Connection cn = getConexion(); 
+           String Where = "";
+           if (sede != "cualquiera"){
+            existeFiltro = true;
+            Where = Where + " WHERE (sede='" + sede + "')";
+           }
+           if ("0".equals(placa)){int i = 1;
+           }else{
+                if (existeFiltro == true){
+                   Where = Where + " and (idVehiculo = '"+ placa +"')";
+                }else{
+                   Where = " WHERE (idVehiculo = '"+ placa +"')";
+                   existeFiltro = true;}
+           }
+           if ( idOperador != 0){
+                if (existeFiltro == true){
+                    Where = Where + " and (idOperador= "+ idOperador +")";
+                }else{
+                    Where = " WHERE (idOperador= "+ idOperador +")";
+                    existeFiltro = true;}
+           }
+           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+           Date date1 = sdf.parse("0000-00-000");
+           if (fechaInicio.compareTo(date1) == 0 ){
+               fechaInicio = date1;
+           }else{
+                if (existeFiltro == true){ 
+                    Where = Where + " and (fechaInicio = select"+ fechaInicio+")";
+                }else{
+                    Where = " WHERE (fechaInicio = "+ fechaInicio+")";
+                    existeFiltro = true;}
+           }
+           if (existeFiltro == true){
+            pst = cn.prepareStatement("SELECT * FROM esquema.reserva " + Where);
+            System.out.println("SELECT * FROM esquema.reserva " + Where);
+           }else{
+            pst = cn.prepareStatement("SELECT * FROM esquema.reserva");
+           }
+           
+           rs = pst.executeQuery();
+        }catch(Exception e){System.out.println("1" + e); 
+            
+        }
+        return rs;
+    }
      
      
     

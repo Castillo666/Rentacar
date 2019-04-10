@@ -57,8 +57,8 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TipoCB = new javax.swing.JComboBox<String>();
-        SedeCB = new javax.swing.JComboBox<String>();
+        TipoCB = new javax.swing.JComboBox<>();
+        SedeCB = new javax.swing.JComboBox<>();
         txtDesde = new javax.swing.JTextField();
         txtHasta = new javax.swing.JTextField();
         filtrar = new javax.swing.JToggleButton();
@@ -72,7 +72,7 @@ public class Filtrar extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        SedeDejar = new javax.swing.JComboBox<String>();
+        SedeDejar = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         fechaInicio = new javax.swing.JTextField();
@@ -127,7 +127,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
 
         TipoCB.setEditable(true);
-        TipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "minivan" }));
+        TipoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "económico", "convertible", "compacto", "pickup", "intermedio", "suv", "minivan" }));
         TipoCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoCBActionPerformed(evt);
@@ -136,7 +136,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(TipoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 120, -1));
 
         SedeCB.setForeground(new java.awt.Color(0, 0, 102));
-        SedeCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        SedeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sin filtro", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
         getContentPane().add(SedeCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 140, -1));
 
         txtDesde.setText("0");
@@ -227,7 +227,7 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         SedeDejar.setForeground(new java.awt.Color(0, 0, 102));
-        SedeDejar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        SedeDejar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
         getContentPane().add(SedeDejar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,6 +239,11 @@ public class Filtrar extends javax.swing.JFrame {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         fechaInicio.setText("DD/MM/YY");
+        fechaInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaInicioActionPerformed(evt);
+            }
+        });
         getContentPane().add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 80, -1));
 
         fechaFin.setText("DD/MM/YY");
@@ -396,7 +401,7 @@ public class Filtrar extends javax.swing.JFrame {
     private void ReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarActionPerformed
         // TODO add your handling code here:
         String placa = placatxt.getText();
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
         try {
             parsed = format.parse(fechaInicio.getText());
@@ -473,6 +478,10 @@ public class Filtrar extends javax.swing.JFrame {
         placatxt.setText(placa);
         
     }//GEN-LAST:event_seleccionarVehiculoActionPerformed
+
+    private void fechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaInicioActionPerformed
 
     /**
      * @param args the command line arguments
