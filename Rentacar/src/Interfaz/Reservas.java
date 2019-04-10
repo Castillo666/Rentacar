@@ -29,6 +29,7 @@ import Main.Main;
  */
 public class Reservas extends javax.swing.JFrame {
 public static int  idClienteR;
+public static String correoCliente;
   
     /**
      * Creates new form Reserva
@@ -174,6 +175,7 @@ public static int  idClienteR;
         }
             
           idClienteR = Integer.parseInt(cedula.getText());
+          correoCliente = email.getText();
         } else  {
             JOptionPane.showMessageDialog(null,"Por favor indique la cedula");
         }

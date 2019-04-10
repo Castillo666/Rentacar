@@ -23,7 +23,7 @@ public class crearPDF
          document.open();
          try
         {
-	Image foto = Image.getInstance("C:\\Users\\Dell\\Desktop\\Logo.png");
+	Image foto = Image.getInstance("C:\\Users\\Raquel Rojas\\Desktop\\ImagenesBD\\logo.jpeg");
 	foto.scaleToFit(150, 150);
 	foto.setAlignment(Chunk.ALIGN_MIDDLE);
 	document.add(foto);

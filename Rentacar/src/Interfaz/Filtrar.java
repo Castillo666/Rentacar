@@ -30,6 +30,7 @@ import Entidades.Reserva;
 import Operaciones.ReservaOp;
 import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
+import Interfaz.Reservas;
 
 /**
  *

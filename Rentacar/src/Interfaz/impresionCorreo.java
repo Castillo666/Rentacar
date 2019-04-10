@@ -17,6 +17,8 @@ import java.util.logging.Logger;
  * @author Dell
  */
 public class impresionCorreo extends javax.swing.JFrame {
+    
+    String correoCliente = Reservas.correoCliente;
 
     /**
      * Creates new form NewJFrame
@@ -55,7 +57,7 @@ public class impresionCorreo extends javax.swing.JFrame {
             }
         });
 
-        txtCorreo.setText("jTextField1");
+        txtCorreo.setEditable(false);
 
         jLabel1.setText("Indicar correo electronico para enviar factura");
 
@@ -97,7 +99,8 @@ public class impresionCorreo extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         enviarCorreoPDF pdf = new enviarCorreoPDF();
-        pdf.enviar_correo(txtCorreo.getText(),"Factura de Reserva", "Se le adjunta la factura de la reserva correspondiente");
+        txtCorreo.setText(correoCliente);
+        pdf.enviar_correo(correoCliente,"Factura de Reserva", "Se le adjunta la factura de la reserva correspondiente");
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
