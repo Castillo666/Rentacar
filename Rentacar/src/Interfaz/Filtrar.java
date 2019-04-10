@@ -448,6 +448,7 @@ public class Filtrar extends javax.swing.JFrame {
                      
                      
                      precioTotal = Reserva.calcularPrecio(precio,daysInt,wifi , asist, GPS, asien, segur);
+                     double crcPrecio = precioTotal * Servicios.TipoCambio.TipoCambio();
                      
                      
                      try {
@@ -460,7 +461,7 @@ public class Filtrar extends javax.swing.JFrame {
                      Reserva reserva = new Reserva();
                     
                     int confirmacion = JOptionPane.showConfirmDialog(null, "Cedula cliente: " + idClienteR + "\n Vehiculo placa: " + placa + "\n fecha Inicio: " +
-                fechaI + "\n Fecha Fin: " + fechaFin + "\n Sede: " + sede + "\n Precio Total: " + precioTotal);
+                fechaI + "\n Fecha Fin: " + fechaFin + "\n Sede: " + sede + "\n Precio Total: " + precioTotal +"USD"+"\n Precio en colones:"+ crcPrecio);
                          if(confirmacion == JOptionPane.YES_OPTION)  {       
                             reserva.setIdReserva(idReserva);
                             reserva.setFechaInicio(fechaI);

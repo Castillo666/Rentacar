@@ -144,10 +144,10 @@ public class Conexion {
                     existeFiltro = true;}
            }
            if (existeFiltro == true){
-            pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo " + Where);
+            pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo " + Where + " and (estado = 'activo')");
             System.out.println("SELECT * FROM esquema.vehiculo " + Where);
            }else{
-            pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo");
+            pst = cn.prepareStatement("SELECT * FROM esquema.vehiculo and (estado = 'activo')");
             System.out.println("SELECT * FROM esquema.vehiculo");
            }
            
