@@ -213,9 +213,6 @@ public class ServMantenimiento extends javax.swing.JFrame {
        this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbRegistrar;

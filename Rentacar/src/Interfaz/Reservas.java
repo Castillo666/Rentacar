@@ -202,9 +202,6 @@ public static String correoCliente;
         }
     }//GEN-LAST:event_continuarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cedula;

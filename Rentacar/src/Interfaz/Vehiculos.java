@@ -296,9 +296,6 @@ if (JFileChooser.APPROVE_OPTION == resultado){
        this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -247,9 +247,6 @@ if (JFileChooser.APPROVE_OPTION == resultado){
        this.setVisible(false);
     }//GEN-LAST:event_btnVlverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
   
     
   

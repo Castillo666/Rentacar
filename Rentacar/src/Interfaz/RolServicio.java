@@ -84,10 +84,6 @@ public class RolServicio extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JLabel jLabel1;

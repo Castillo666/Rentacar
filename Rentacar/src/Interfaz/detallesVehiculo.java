@@ -145,9 +145,6 @@ public class detallesVehiculo extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_cerrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Capacidad;

@@ -206,9 +206,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         reserva.setVisible(true);
     }//GEN-LAST:event_btnDetalleReservaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetalleReserva;
