@@ -1,4 +1,4 @@
-/*package Apis;
+package Apis;
 
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
@@ -15,25 +15,9 @@ public class impresion {
 
     private final static Logger LOGGER = Logger.getLogger("mx.hash.impresionpdf.Impresor");
 
-    public static void main(String[] args) {
-        impresion impresor = new impresion();
-
-        try {
-            impresor.imprimir();
-        } catch (PrinterException | IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error de impresion", "Error", JOptionPane.ERROR_MESSAGE);
-            LOGGER.log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /***
-     * Manda un documento a imprimir a la impresora que se indique en el dialogo
-     * @throws PrinterException
-     * @throws IOException 
-    
     public void imprimir() throws PrinterException, IOException {
         // Indicamos el nombre del archivo Pdf que deseamos imprimir
-        PDDocument document = PDDocument.load(new File("./HelloWorld.pdf"));
+        PDDocument document = PDDocument.load(new File("Factura.pdf"));
 
         PrinterJob job = PrinterJob.getPrinterJob();
 
@@ -46,4 +30,3 @@ public class impresion {
         }
     }
 }
-*/

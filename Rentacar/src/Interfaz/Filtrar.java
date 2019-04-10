@@ -5,7 +5,9 @@
  */
 package Interfaz;
 
+import Apis.crearPDF;
 import Conexion.Conexion;
+import Entidades.Factura;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -26,6 +28,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Entidades.Reserva;
 import Operaciones.ReservaOp;
+import com.itextpdf.text.DocumentException;
+import java.io.FileNotFoundException;
 
 /**
  *
@@ -43,6 +47,7 @@ public class Filtrar extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    double precioTotal;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -440,7 +445,7 @@ public class Filtrar extends javax.swing.JFrame {
                      boolean segur = seguro.isSelected();
                      
                      
-                     double precioTotal = Reserva.calcularPrecio(precio,daysInt,wifi , asist, GPS, asien, segur);
+                     precioTotal = Reserva.calcularPrecio(precio,daysInt,wifi , asist, GPS, asien, segur);
                      
                      
                      try {
@@ -467,15 +472,23 @@ public class Filtrar extends javax.swing.JFrame {
                      
                             ReservaOp.registrarReserva(reserva);
                             idReserva ++;
+                            crearPDF pdf = new crearPDF();
+                            int idFactura = Factura.numeroFactura;
+                            pdf.crear(idFactura,placatxt.getText(),SedeCB.getSelectedItem().toString(),txtIdOp.getText(),precioTotal);
+                            impresionCorreo imp = new impresionCorreo();
+                            imp.setVisible(true);
                          } else if (confirmacion == JOptionPane.NO_OPTION) {
                             JOptionPane.showMessageDialog(null, "Has seleccionado NO."); }
 
                      
                  } catch (SQLException ex) {
                      Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+                 } catch (FileNotFoundException ex) {
+                     Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+                 } catch (DocumentException ex) {
+                     Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
                  }
              }
-            
         }
         }  else {
         JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos");

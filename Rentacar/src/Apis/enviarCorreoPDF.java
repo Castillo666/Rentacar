@@ -1,4 +1,4 @@
-/*package Apis;
+package Apis;
 
 import com.itextpdf.text.Document;
 import java.util.Properties;
@@ -16,7 +16,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-public class enviar_correo {
+public class enviarCorreoPDF {
    
     public static void enviar_correo(String to, String sub,String msg){
         Properties props = new Properties();
@@ -50,8 +50,8 @@ public class enviar_correo {
             
             BodyPart adjunto = new MimeBodyPart();
             adjunto.setDataHandler(
-                new DataHandler(new FileDataSource("ImportanteLeer.pdf")));
-            adjunto.setFileName("MePErdonaz :(.pdf");
+                new DataHandler(new FileDataSource("Factura.pdf")));
+            adjunto.setFileName("Factura:(.pdf");
             
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);
@@ -76,4 +76,3 @@ public class enviar_correo {
     }
     
 }
-*/

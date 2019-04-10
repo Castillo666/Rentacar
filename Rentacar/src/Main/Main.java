@@ -5,10 +5,17 @@
  */
 package Main;
 
+import Apis.crearPDF;
 import Apis.enviarCorreo;
+import Apis.enviarCorreoPDF;
+import Apis.impresion;
 import Conexion.Conexion;
 import Interfaz.Login;
 import Servicios.Password;
+import com.itextpdf.text.DocumentException;
+import java.awt.print.PrinterException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -24,14 +31,14 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws FileNotFoundException, DocumentException, PrinterException, IOException  {
         int idClienteReserva = 0;
         
         Conexion.getConexion();
         System.out.println("La conexión se realizó correctamente");
         
        Login login = new Login();
-       login.setVisible(true);    
+       login.setVisible(true);
     }
     
 }
