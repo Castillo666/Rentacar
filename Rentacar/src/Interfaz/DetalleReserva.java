@@ -52,7 +52,7 @@ public class DetalleReserva extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnVer = new javax.swing.JButton();
-        sede = new javax.swing.JComboBox<String>();
+        sede = new javax.swing.JComboBox<>();
         fechaInicio = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,7 +128,7 @@ public class DetalleReserva extends javax.swing.JFrame {
         getContentPane().add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 412, -1, -1));
 
         sede.setForeground(new java.awt.Color(0, 0, 102));
-        sede.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cualquiera", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        sede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cualquiera", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
         getContentPane().add(sede, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 133, 140, -1));
         getContentPane().add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 203, -1, -1));
 
@@ -143,19 +143,18 @@ public class DetalleReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
         int idO = Integer.parseInt(idOperador.getText());
         String plac = placa.getText();
-        java.sql.Date fechaI = new java.sql.Date(fechaInicio.getDate().getTime());
-        System.out.println(plac);
+        //java.sql.Date fechaI = new java.sql.Date(fechaInicio.getDate().getTime());
         String sedeRecoger = sede.getSelectedItem().toString();
         
         Conexion cn = new Conexion();
-        ResultSet rs = cn.reservaFiltrada(sedeRecoger, plac, idO, fechaI);
+        ResultSet rs = cn.reservaFiltrada(sedeRecoger, plac, idO);
         DefaultTableModel table = new DefaultTableModel();
         this.reservasFil.setModel(table);
-        table.setColumnIdentifiers(new Object[]{"Numero Reserva","FechaInicio", "idCliente", "Placa","Sede"});
+        table.setColumnIdentifiers(new Object[]{"Numero Reserva", "idCliente", "Placa","Sede"});
         
         try{
             while(rs.next()){
-            table.addRow(new Object[]{rs.getInt("idReserva"), rs.getDate("fechaInicio"), rs.getInt("idCliente"),rs.getString("idVehiculo"),rs.getString("sede")});
+            table.addRow(new Object[]{rs.getInt("idReserva"), rs.getInt("idCliente"),rs.getString("idVehiculo"),rs.getString("sede")});
             }
         }catch(Exception e){System.out.println("Hubo error" + e);}
         

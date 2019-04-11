@@ -210,7 +210,7 @@ public class Conexion {
      
      }
      
-     public ResultSet reservaFiltrada(String sede,String placa, int idOperador, Date fechaInicio){
+     public ResultSet reservaFiltrada(String sede,String placa, int idOperador){
         PreparedStatement pst;
         ResultSet rs = null;
         boolean existeFiltro = false;
@@ -236,7 +236,7 @@ public class Conexion {
                     Where = " WHERE (idOperador= "+ idOperador +")";
                     existeFiltro = true;}
            }
-           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+           /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
            Date date1 = sdf.parse("0000-00-000");
            if (fechaInicio.compareTo(date1) == 0 ){
                fechaInicio = date1;
@@ -246,7 +246,7 @@ public class Conexion {
                 }else{
                     Where = " WHERE (fechaInicio = '"+ fechaInicio+"' )";
                     existeFiltro = true;}
-           }
+           }*/
            if (existeFiltro == true){
             pst = cn.prepareStatement("SELECT * FROM esquema.reserva " + Where);
             System.out.println("SELECT * FROM esquema.reserva " + Where);
