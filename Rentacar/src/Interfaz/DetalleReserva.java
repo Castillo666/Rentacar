@@ -14,18 +14,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Interfaz.detallesClienteR;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  *
  * @author Raquel Rojas
  */
 public class DetalleReserva extends javax.swing.JFrame {
+    public static String placaR;
 
     /**
      * Creates new form DetalleReserva
      */
     public DetalleReserva() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -52,12 +57,16 @@ public class DetalleReserva extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnVer = new javax.swing.JButton();
-        sede = new javax.swing.JComboBox<>();
+        sede = new javax.swing.JComboBox<String>();
         fechaInicio = new com.toedter.calendar.JDateChooser();
+        btnVolver = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ID Operador:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 136, -1, -1));
 
@@ -79,8 +88,8 @@ public class DetalleReserva extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(reservasFil);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 247, 379, 142));
-        getContentPane().add(NoReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 42, 116, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 379, 142));
+        getContentPane().add(NoReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 116, -1));
 
         idOperador.setText("0");
         getContentPane().add(idOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 133, 71, -1));
@@ -88,12 +97,15 @@ public class DetalleReserva extends javax.swing.JFrame {
         placa.setText("0");
         getContentPane().add(placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 203, 90, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Punto de Recogida:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 136, -1, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Placa del Vehiculo ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 206, -1, -1));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha Inicio:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 209, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 98, 643, 10));
@@ -108,8 +120,9 @@ public class DetalleReserva extends javax.swing.JFrame {
         jLabel15.setText("Detalle de Reservar ");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 13, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Número de Reserva:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 45, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jButton1.setText("Filtrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -119,23 +132,59 @@ public class DetalleReserva extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 170, -1, -1));
 
-        btnVer.setText("Ver detalle");
+        btnVer.setText("Ver Detalle");
         btnVer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 412, -1, -1));
+        getContentPane().add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
         sede.setForeground(new java.awt.Color(0, 0, 102));
-        sede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cualquiera", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
+        sede.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cualquiera", "Aeropuerto Juan Santamaria", "Santa Ana", "Paseo Colon", "Paseo de las flores ", "Curridabat" }));
         getContentPane().add(sede, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 133, 140, -1));
         getContentPane().add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 203, -1, -1));
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
+
+        lblFondo.setBackground(new java.awt.Color(0, 0, 102));
+        lblFondo.setOpaque(true);
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 810, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+
+        
+        int selectedRow = reservasFil.getSelectedRow();
+        String placa = reservasFil.getModel().getValueAt(selectedRow,2).toString();
+        detallesVehiculo detalles = new detallesVehiculo();
+        detalles.setVisible(true);
+        try {
+            detalles.vehiculo(placa);
+        } catch (SQLException ex) {
+            Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DetalleReserva.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        int selectedRow2 = reservasFil.getSelectedRow();
+        String cedula = reservasFil.getModel().getValueAt(selectedRow2,1).toString();
+        detallesClienteR detallesC = new detallesClienteR();
+        detallesC.setVisible(true);
+        try {
+            detallesC.cliente(cedula);
+        } catch (SQLException ex) {
+            Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }//GEN-LAST:event_btnVerActionPerformed
 
@@ -154,11 +203,15 @@ public class DetalleReserva extends javax.swing.JFrame {
         
         try{
             while(rs.next()){
+                
             table.addRow(new Object[]{rs.getInt("idReserva"), rs.getInt("idCliente"),rs.getString("idVehiculo"),rs.getString("sede")});
+            placaR =rs.getString("idVehiculo");
             }
         }catch(Exception e){System.out.println("Hubo error" + e);}
+
+    
         
-        JOptionPane.showMessageDialog(null,"");
+        
         
                 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -170,10 +223,17 @@ public class DetalleReserva extends javax.swing.JFrame {
         NoReserva.setText(numR);
     }//GEN-LAST:event_reservasFilMouseClicked
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NoReserva;
     private javax.swing.JButton btnVer;
+    private javax.swing.JButton btnVolver;
     private com.toedter.calendar.JDateChooser fechaInicio;
     private javax.swing.JTextField idOperador;
     private javax.swing.JButton jButton1;
@@ -186,6 +246,7 @@ public class DetalleReserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JTextField placa;
     private javax.swing.JTable reservasFil;
     private javax.swing.JComboBox<String> sede;

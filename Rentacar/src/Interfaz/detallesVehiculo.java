@@ -6,8 +6,15 @@
 package Interfaz;
 
 import Conexion.Conexion;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,9 +27,10 @@ public class detallesVehiculo extends javax.swing.JFrame {
      */
     public detallesVehiculo() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
-    public void vehiculo(String placa) throws SQLException{
+    public void vehiculo(String placa) throws SQLException, IOException{
         Conexion cc = new Conexion();
         try {
             ResultSet rs = cc.vehiculo(placa);
@@ -35,6 +43,14 @@ public class detallesVehiculo extends javax.swing.JFrame {
             Transmision.setText(rs.getString("transmision"));
             mbg.setText(rs.getString("mpg"));
             vin.setText(rs.getString("vin"));
+            
+            Blob foto = rs.getBlob("fotoLicencia");
+                    byte []recu = foto.getBytes(1, (int) foto.length());
+                    BufferedImage img = ImageIO.read(new ByteArrayInputStream(recu));
+            
+            Image imges = img.getScaledInstance(imagen.getWidth(),imagen.getHeight(), Image.SCALE_SMOOTH);
+                
+            imagen.setIcon(new ImageIcon(imges));
             
             
         }catch (SQLException ex){}
@@ -65,9 +81,11 @@ public class detallesVehiculo extends javax.swing.JFrame {
         mbg = new javax.swing.JTextField();
         Capacidad = new javax.swing.JTextField();
         cerrar = new javax.swing.JButton();
+        imagen = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,6 +150,7 @@ public class detallesVehiculo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 293, -1, -1));
+        getContentPane().add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 140, 100));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
@@ -153,6 +172,7 @@ public class detallesVehiculo extends javax.swing.JFrame {
     private javax.swing.JTextField Puertas;
     private javax.swing.JTextField Transmision;
     private javax.swing.JButton cerrar;
+    private javax.swing.JLabel imagen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

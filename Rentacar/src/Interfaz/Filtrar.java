@@ -385,7 +385,9 @@ public class Filtrar extends javax.swing.JFrame {
             detalles.vehiculo(placa);
         } catch (SQLException ex) {
             Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch (IOException ex) {
+             Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }//GEN-LAST:event_imagenMouseClicked
 
     private void numPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numPasajerosActionPerformed

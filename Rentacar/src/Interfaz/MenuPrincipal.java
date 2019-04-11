@@ -38,7 +38,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         reservar = new javax.swing.JButton();
         btnRecorrido = new javax.swing.JButton();
         btnDetalleReserva = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,7 +102,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, -1, -1));
 
         btnEditarVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarVehiculo.setForeground(new java.awt.Color(0, 0, 102));
@@ -131,6 +130,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnRecorrido.setForeground(new java.awt.Color(0, 0, 102));
         btnRecorrido.setText("Recorrido Vehicuo");
         btnRecorrido.setBorderPainted(false);
+        btnRecorrido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecorridoActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 170, -1));
 
         btnDetalleReserva.setBackground(new java.awt.Color(255, 255, 255));
@@ -142,15 +146,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnDetalleReservaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDetalleReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 160, -1));
-
-        jButton2.setText("Mostar Recorrido");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
+        getContentPane().add(btnDetalleReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 160, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
@@ -213,13 +209,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         DetalleReserva reserva = new DetalleReserva();
         reserva.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnDetalleReservaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Recorrido rec = new Recorrido();
+    private void btnRecorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecorridoActionPerformed
+       Recorrido rec = new Recorrido();
         rec.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnRecorridoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -228,7 +225,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRecorrido;
     private javax.swing.JButton btnRegVehiculo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JButton registrarCliente;
