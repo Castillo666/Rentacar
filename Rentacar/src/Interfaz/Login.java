@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -91,15 +92,11 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-       
-       MenuPrincipal menu = new MenuPrincipal();
-       menu.setVisible(true);
-       this.setVisible(false);
+  
        
        Conexion.getConexion();
         Conexion con = new Conexion();
-       
-       /* 
+      
         if (!txtCorreo.getText().isEmpty() & !txtPassword.getText().isEmpty()) {
          try {
             if (con.login(txtCorreo.getText() , txtPassword.getText()) == 1) {
@@ -113,7 +110,7 @@ public class Login extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Por favor llene los espacios");
         }
-       */
+      
         
         
     }//GEN-LAST:event_btnIniciarSesionActionPerformed

@@ -11,12 +11,16 @@ import Operaciones.RolServicioOp;
 import Servicios.Password;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+import Entidades.Operador;
+import Operaciones.OperadorOp;
 
 /**
  *
  * @author Dell
  */
 public class RolServicio extends javax.swing.JFrame {
+    
+    public static int idOperador = 6;
 
     /**
      * Creates new form RolServicio
@@ -37,7 +41,13 @@ public class RolServicio extends javax.swing.JFrame {
 
         btnEnviar = new javax.swing.JButton();
         txtCorreo = new javax.swing.JTextField();
+        lblNombre = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
+        lblTexto = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,23 +60,41 @@ public class RolServicio extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 352, -1));
+        getContentPane().add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 230, -1));
 
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setText("Nombre:");
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 240, -1));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Indicar direccion de correo electronico para generar usuario y contraseña");
-        jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 530, 70));
+        jLabel1.setText("Registrar Operador");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Correo:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Telefono:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 180, -1));
+
+        lblTexto.setForeground(new java.awt.Color(255, 255, 255));
+        lblTexto.setText("Se le enviará al correo su usuario y contraseña");
+        getContentPane().add(lblTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 550, 300));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-    if (!txtCorreo.getText().isEmpty()) {
+    if (!txtCorreo.getText().isEmpty() & !txtNombre.getText().isEmpty() & !txtTelefono.getText().isEmpty()) {
             String contraseña = String.valueOf(Password.generatePswd());
         enviarCorreo.send(txtCorreo.getText(),"Datos de Usuario", "Usuario: "+txtCorreo.getText()
                 +"\n\n"+"Contraseña: "+contraseña,"rentacarkpr@gmail.com", "prograbases1");
@@ -75,6 +103,17 @@ public class RolServicio extends javax.swing.JFrame {
         rol.setUsuario(txtCorreo.getText());
         rol.setContraseña(contraseña);
         RolServicioOp.registrarRoldeServicio(rol);
+        
+        Operador operador = new Operador();
+        operador.setCedula(idOperador);
+        operador.setNombre(txtNombre.getText());
+        operador.setCorreo(txtCorreo.getText());
+        operador.setTelefono(txtTelefono.getText());
+        
+        OperadorOp.registrarOperador(operador);
+        
+        idOperador++;
+   
         JOptionPane.showMessageDialog(null, "El nuevo rol se insertó correctamente");
         this.setVisible(false);
         Login login = new Login();
@@ -87,7 +126,13 @@ public class RolServicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTexto;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

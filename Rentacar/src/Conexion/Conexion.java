@@ -265,7 +265,7 @@ public class Conexion {
       boolean resultado = false;
         try {
            Statement ejecutor = conexion.createStatement();
-           ResultSet rs = ejecutor.executeQuery("Select idOperador from esquema.operador  Where idOperador =" + idO + "'");
+           ResultSet rs = ejecutor.executeQuery("Select cedula from esquema.operador  Where idOperador = '" + idO + "'");
             if (rs.next()){
                 resultado = true;
             } else {

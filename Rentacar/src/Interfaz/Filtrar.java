@@ -33,6 +33,7 @@ import java.io.FileNotFoundException;
 import Interfaz.Reservas;
 import static Servicios.Password.getRandom;
 import com.google.maps.model.LatLng;
+import Conexion.Conexion;
 
 /**
  *
@@ -461,7 +462,9 @@ public class Filtrar extends javax.swing.JFrame {
                      
                      Reserva reserva = new Reserva();
                     
-                    int confirmacion = JOptionPane.showConfirmDialog(null, "Cedula cliente: " + idClienteR + "\n Vehiculo placa: " + placa + "\n fecha Inicio: " +
+                     if (cn.existeOperador(Integer.parseInt(txtIdOp.getText())) == true){
+                     
+                         int confirmacion = JOptionPane.showConfirmDialog(null, "Cedula cliente: " + idClienteR + "\n Vehiculo placa: " + placa + "\n fecha Inicio: " +
                 fechaI + "\n Fecha Fin: " + fechaFin + "\n Sede: " + sede + "\n Precio Total: " + precioTotal +"USD"+"\n Precio en colones:"+ crcPrecio);
                          if(confirmacion == JOptionPane.YES_OPTION)  {       
                             reserva.setIdReserva(idReserva);
@@ -488,8 +491,11 @@ public class Filtrar extends javax.swing.JFrame {
                             imp.setVisible(true);
                          } else if (confirmacion == JOptionPane.NO_OPTION) {
                             JOptionPane.showMessageDialog(null, "Has seleccionado NO."); }
-
-                     
+                         
+                     } else {
+                         JOptionPane.showMessageDialog(null, "El operador no existe, por favor ingresar uno válido");
+                     }
+   
                  } catch (SQLException ex) {
                      Logger.getLogger(Filtrar.class.getName()).log(Level.SEVERE, null, ex);
                  } catch (FileNotFoundException ex) {

@@ -7,6 +7,18 @@ public class Operador {
 	String correo;
 	String telefono;
 
+    public Operador(int cedula, String nombre, String correo, String telefono) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.telefono = telefono;
+    }
+
+    public Operador() {
+    }
+
+        
+        
     public void setCedula(int cedula) {
         this.cedula = cedula;
     }

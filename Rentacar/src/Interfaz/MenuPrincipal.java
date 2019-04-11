@@ -76,7 +76,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 registrarServMantenimientoActionPerformed(evt);
             }
         });
-        getContentPane().add(registrarServMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
+        getContentPane().add(registrarServMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, -1));
 
         btnRegVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         btnRegVehiculo.setForeground(new java.awt.Color(0, 0, 102));
@@ -103,7 +103,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
 
         btnEditarVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarVehiculo.setForeground(new java.awt.Color(0, 0, 102));
@@ -142,7 +142,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnDetalleReservaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDetalleReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
+        getContentPane().add(btnDetalleReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 160, -1));
 
         jButton2.setText("Mostar Recorrido");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 102));
         lblFondo.setOpaque(true);
