@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Apis">
+  <ClassDiagramComponents>
+    <Class name="crearPDF" package="Apis" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crear" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="idfactura"/>
+          <Argument type="String" name="placa"/>
+          <Argument type="String" name="sede"/>
+          <Argument type="String" name="idOperador"/>
+          <Argument type="double" name="precio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="enviarCorreo" package="Apis" visibility="public" xPosition="351.0" yPosition="211.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="send" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="to"/>
+          <Argument type="String" name="sub"/>
+          <Argument type="String" name="msg"/>
+          <Argument type="String" name="user"/>
+          <Argument type="String" name="pass"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="enviarCorreoPDF" package="Apis" visibility="public" xPosition="585.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="enviar_correo" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="to"/>
+          <Argument type="String" name="sub"/>
+          <Argument type="String" name="msg"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="impresion" package="Apis" visibility="public" xPosition="128.0" yPosition="192.0">
+      <Fields>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Conexion">
+  <ClassDiagramComponents>
+    <Class name="Conexion" package="Conexion" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="contacto" type="Connection" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getConexion" returnType="Connection" visibility="public" isStatic="true"/>
+        <Method name="Consulta" returnType="ResultSet" visibility="public" isStatic="true">
+          <Argument type="String" name="consulta"/>
+        </Method>
+        <Method name="login" returnType="int" visibility="public" isStatic="true">
+          <Argument type="String" name="usuario"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="existeCliente" returnType="int" visibility="public" isStatic="true">
+          <Argument type="String" name="cedula"/>
+        </Method>
+        <Method name="vehiculosFiltrados" returnType="ResultSet" visibility="public">
+          <Argument type="String" name="estilo"/>
+          <Argument type="String" name="sede"/>
+          <Argument type="int" name="desde"/>
+          <Argument type="int" name="hasta"/>
+          <Argument type="int" name="pasajero"/>
+        </Method>
+        <Method name="vehiculo" returnType="ResultSet" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="obtenerCliente" returnType="ResultSet" visibility="public" isStatic="true">
+          <Argument type="String" name="cedula"/>
+        </Method>
+        <Method name="vehiculoReservado" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Date" name="fechaInicio"/>
+          <Argument type="Date" name="fechaFin"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="reservaFiltrada" returnType="ResultSet" visibility="public">
+          <Argument type="String" name="sede"/>
+          <Argument type="String" name="placa"/>
+          <Argument type="int" name="idOperador"/>
+        </Method>
+        <Method name="existeOperador" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="int" name="idO"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
