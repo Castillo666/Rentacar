@@ -25,6 +25,7 @@ public class impresionCorreo extends javax.swing.JFrame {
      */
     public impresionCorreo() {
         initComponents();
+        txtCorreo.setText(correoCliente);
     }
 
     /**
@@ -99,7 +100,6 @@ public class impresionCorreo extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         enviarCorreoPDF pdf = new enviarCorreoPDF();
-        txtCorreo.setText(correoCliente);
         pdf.enviar_correo(correoCliente,"Factura de Reserva", "Se le adjunta la factura de la reserva correspondiente");
     }//GEN-LAST:event_btnEnviarActionPerformed
 
