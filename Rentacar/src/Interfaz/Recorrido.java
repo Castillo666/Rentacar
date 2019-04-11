@@ -117,13 +117,13 @@ public class Recorrido extends javax.swing.JFrame {
         
         try {
             while(rs.next()){
-                String pointA = rs.getNString(1);
-                String pointB = rs.getNString(1);
+                String pointA = rs.getString(1);
+                String pointB = rs.getString(2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Recorrido.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String result = "https://www.google.com/maps/dir/"+pointA+"/"+pointB+"/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x8fa0e3652c47496b:0xe5ca998538321dcc!2m2!1d-84.0698362!2d9.9300045!3e0";
+        String result = "https://www.google.com/maps/dir/"+pointA+"/"+pointB;
         try {
             Desktop.getDesktop().browse(new URI(result));
         } catch (URISyntaxException ex) {

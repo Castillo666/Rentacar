@@ -42,4 +42,8 @@ public class Password {
         }
         return password;
     }
+    public static double getRandom(Double valorMinimo, Double valorMaximo) {
+        Random rand = new Random();
+        return  valorMinimo + ( valorMaximo - valorMinimo ) * rand.nextDouble();
+    }
 }

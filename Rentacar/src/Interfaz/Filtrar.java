@@ -31,6 +31,7 @@ import Operaciones.ReservaOp;
 import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
 import Interfaz.Reservas;
+import static Servicios.Password.getRandom;
 import com.google.maps.model.LatLng;
 
 /**
@@ -473,8 +474,8 @@ public class Filtrar extends javax.swing.JFrame {
                             reserva.setIdCliente(idClienteR);
                             reserva.setSede(sede);
                             
-                            String puntoA = new LatLng(9.78f,-83.90f).toString();
-                            String puntoB = new LatLng(9.93f, -84.07f).toString();
+                            String puntoA = new LatLng(getRandom(-99.0, 99.0),getRandom(-99.0, 99.0)).toString();
+                            String puntoB = new LatLng(getRandom(-99.0, 99.0),getRandom(-99.0, 99.0)).toString();
                             reserva.setPuntoInicial(puntoA);
                             reserva.setPuntoFinal(puntoB);
                      
